@@ -19,16 +19,14 @@ kmod-nls-cp932 kmod-nls-cp936 kmod-nls-cp950 \
 kmod-fs-exfat kmod-fs-ext4 kmod-fs-f2fs kmod-fs-msdos kmod-fs-vfat kmod-fuse ntfs-3g-utils e2fsprogs f2fs-tools mkf2fs fdisk \
 kmod-mtd-rw block-mount lsblk kmod-usb-uhci kmod-usb-ohci kmod-usb-storage-extras kmod-scsi-core \
 automount autosamba \
-default-settings luci-ssl-openssl luci-theme-material luci-app-adbyby-plus luci-app-autoreboot \
-luci-app-filetransfer luci-app-ssr-plus luci-app-vsftpd luci-app-xlnetacc \
-luci-app-arpbind luci-app-vlmcsd luci-app-ramfree \
-luci-app-wrtbwmon luci-app-aria2 ariang
+luci-ssl-openssl luci-theme-material luci-app-adbyby-plus luci-app-ssr-plus luci-app-vsftpd luci-app-xlnetacc luci-app-arpbind luci-app-vlmcsd luci-app-ramfree luci-app-wrtbwmon \
+luci-app-aria2 ariang
 # For nas targets
 DEFAULT_PACKAGES.nas:=block-mount fdisk lsblk mdadm
 # For router targets
 DEFAULT_PACKAGES.router:=dnsmasq-full iptables ppp ppp-mod-pppoe firewall \
-kmod-tcp-bbr kmod-nf-nathelper kmod-nf-nathelper-extra kmod-ipt-raw \
-luci-app-sfe luci-app-sqm luci-app-upnp luci-app-wifischedule luci-app-ramfree luci-proto-relay
+kmod-nf-nathelper kmod-nf-nathelper-extra kmod-ipt-raw \
+luci-app-sfe luci-app-sqm luci-app-upnp luci-app-wifischedule luci-proto-relay
 DEFAULT_PACKAGES.bootloader:=
 
 ifneq ($(DUMP),)
