@@ -3,6 +3,7 @@
 .*.swp
 /env
 /dl
+/*.patch
 /.config
 /.config.old
 /bin

@@ -1,0 +1,11 @@
+--- a/CMakeLists.txt	2014-11-15 17:26:56.000000000 +0800
++++ b/CMakeLists.txt	2015-11-27 21:27:22.483199136 +0800
+@@ -1,7 +1,7 @@
+ cmake_minimum_required(VERSION 2.6)
+ 
+ PROJECT(usbmode C)
+-ADD_DEFINITIONS(-Os -ggdb -Wall -Werror --std=gnu99 -Wmissing-declarations)
++ADD_DEFINITIONS(-Wall -Werror --std=gnu99 -Wmissing-declarations)
+ 
+ SET(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
+ 

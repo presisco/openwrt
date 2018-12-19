@@ -1,0 +1,11 @@
+--- a/CMakeLists.txt	2014-11-24 20:24:07.000000000 +0800
++++ b/CMakeLists.txt	2015-11-27 20:19:41.179470886 +0800
+@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.6)
+ PROJECT(uci C)
+ 
+ SET(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
+-ADD_DEFINITIONS(-Os -Wall -Werror --std=gnu99 -g3 -I. -DUCI_PREFIX="${CMAKE_INSTALL_PREFIX}")
++ADD_DEFINITIONS(-Wall --std=gnu99 -I. -DUCI_PREFIX="${CMAKE_INSTALL_PREFIX}")
+ 
+ OPTION(UCI_DEBUG "debugging support" OFF)
+ OPTION(UCI_DEBUG_TYPECAST "typecast debugging support" OFF)

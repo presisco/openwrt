@@ -163,6 +163,7 @@ config NEED_TOOLCHAIN
 menuconfig TOOLCHAINOPTS
 	bool "Toolchain Options"  if DEVEL
 	depends on NEED_TOOLCHAIN
+	default y
 
 menuconfig EXTRA_TARGET_ARCH
 	bool

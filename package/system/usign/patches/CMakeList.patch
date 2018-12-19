@@ -1,0 +1,11 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,7 +1,7 @@
+ cmake_minimum_required(VERSION 2.8)
+ 
+ PROJECT(usign C)
+-ADD_DEFINITIONS(-O2 -Wall -Werror --std=gnu99 -g3 -Wmissing-declarations)
++ADD_DEFINITIONS(-Wall -Werror --std=gnu99 -Wmissing-declarations)
+ 
+ SET(SOURCES ed25519.c edsign.c f25519.c fprime.c sha512.c main.c)
+ 

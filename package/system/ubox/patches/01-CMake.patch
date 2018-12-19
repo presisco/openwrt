@@ -1,0 +1,11 @@
+--- a/CMakeLists.txt	2014-11-24 20:24:07.000000000 +0800
++++ b/CMakeLists.txt	2015-11-27 20:19:41.179470886 +0800
+@@ -1,7 +1,7 @@
+ cmake_minimum_required(VERSION 2.6)
+ 
+ PROJECT(ubox C)
+-ADD_DEFINITIONS(-Os -ggdb -Wall -Werror --std=gnu99 -Wmissing-declarations)
++ADD_DEFINITIONS(-Wall -Werror --std=gnu99 -Wmissing-declarations)
+ 
+ SET(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
+ 

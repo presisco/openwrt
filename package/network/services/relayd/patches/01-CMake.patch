@@ -1,0 +1,11 @@
+--- a/CMakeLists.txt	2014-11-15 16:51:34.000000000 +0800
++++ b/CMakeLists.txt	2015-11-27 21:13:37.032555255 +0800
+@@ -1,7 +1,7 @@
+ cmake_minimum_required(VERSION 2.8)
+ 
+ PROJECT(relayd C)
+-ADD_DEFINITIONS(-Os -Wall -Werror --std=gnu99 -g3)
++ADD_DEFINITIONS(-Wall -Werror --std=gnu99)
+ 
+ IF(APPLE)
+   INCLUDE_DIRECTORIES(/opt/local/include)

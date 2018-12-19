@@ -1,0 +1,11 @@
+--- a/CMakeLists.txt	2014-11-15 16:30:54.000000000 +0800
++++ b/CMakeLists.txt	2015-11-27 21:01:56.248238207 +0800
+@@ -1,7 +1,7 @@
+ cmake_minimum_required(VERSION 2.6)
+ 
+ PROJECT(jsonpath C)
+-ADD_DEFINITIONS(-Os -Wall -Werror --std=gnu99 -Wmissing-declarations -Wno-error=unused-variable -ffunction-sections -D_GNU_SOURCE)
++ADD_DEFINITIONS(-Wall -Werror --std=gnu99 -Wmissing-declarations -Wno-error=unused-variable -ffunction-sections -D_GNU_SOURCE)
+ 
+ SET(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "-Wl,--gc-sections")
+ 

@@ -34,8 +34,9 @@ MUSL_CONFIGURE:= \
 		--prefix=/ \
 		--host=$(GNU_HOST_NAME) \
 		--target=$(REAL_GNU_TARGET_NAME) \
+		--enable-visibility \
 		--disable-gcc-wrapper \
-		--enable-debug
+		--disable-debug
 
 define Host/Prepare
 	$(call Host/Prepare/Default)

@@ -1,0 +1,11 @@
+--- a/lua/CMakeLists.txt	2014-11-24 20:24:07.000000000 +0800
++++ b/lua/CMakeLists.txt	2015-11-27 20:22:06.817835425 +0800
+@@ -15,7 +15,7 @@ IF(NOT LUA_CFLAGS)
+ 	ENDIF()
+ ENDIF()
+ 
+-ADD_DEFINITIONS(-Os -Wall -Werror --std=gnu99 -g3 -I.. ${LUA_CFLAGS})
++ADD_DEFINITIONS(-Wall --std=gnu99 -I.. ${LUA_CFLAGS})
+ LINK_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/..)
+ 
+ IF(APPLE)
