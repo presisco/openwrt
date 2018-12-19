@@ -253,19 +253,18 @@ static int ag71xx_ring_rx_init(struct ag71xx *ag)
 	int ring_size = BIT(ring->order);
 	int ring_mask = BIT(ring->order) - 1;
 	unsigned int i;
-	int ret;
+	int ret = 0;
 	int offset = ag71xx_buffer_offset(ag);
 
-	ret = 0;
 	for (i = 0; i < ring_size; i++) {
 		struct ag71xx_desc *desc = ag71xx_ring_desc(ring, i);
 
 		desc->next = (u32) (ring->descs_dma +
 			AG71XX_DESC_SIZE * ((i + 1) & ring_mask));
 
-		DBG("ag71xx: RX desc at %p, next is %08x\n",
+/*		DBG("ag71xx: RX desc at %p, next is %08x\n",
 			desc, desc->next);
-	}
+*/	}
 
 	for (i = 0; i < ring_size; i++) {
 		struct ag71xx_desc *desc = ag71xx_ring_desc(ring, i);
@@ -292,10 +291,9 @@ static int ag71xx_ring_rx_refill(struct ag71xx *ag)
 {
 	struct ag71xx_ring *ring = &ag->rx_ring;
 	int ring_mask = BIT(ring->order) - 1;
-	unsigned int count;
+	unsigned int count = 0;
 	int offset = ag71xx_buffer_offset(ag);
 
-	count = 0;
 	for (; ring->curr - ring->dirty > 0; ring->dirty++) {
 		struct ag71xx_desc *desc;
 		unsigned int i;
@@ -315,7 +313,7 @@ static int ag71xx_ring_rx_refill(struct ag71xx *ag)
 	/* flush descriptors */
 	wmb();
 
-	DBG("%s: %u rx descriptors refilled\n", ag->dev->name, count);
+//	DBG("%s: %u rx descriptors refilled\n", ag->dev->name, count);
 
 	return count;
 }
@@ -654,7 +652,7 @@ __ag71xx_link_adjust(struct ag71xx *ag, bool update)
 			ag71xx_speed_str(ag),
 			(DUPLEX_FULL == ag->duplex) ? "Full" : "Half");
 
-	DBG("%s: fifo_cfg0=%#x, fifo_cfg1=%#x, fifo_cfg2=%#x\n",
+/*	DBG("%s: fifo_cfg0=%#x, fifo_cfg1=%#x, fifo_cfg2=%#x\n",
 		ag->dev->name,
 		ag71xx_rr(ag, AG71XX_REG_FIFO_CFG0),
 		ag71xx_rr(ag, AG71XX_REG_FIFO_CFG1),
@@ -669,7 +667,7 @@ __ag71xx_link_adjust(struct ag71xx *ag, bool update)
 	DBG("%s: mac_cfg2=%#x, mac_ifctl=%#x\n",
 		ag->dev->name,
 		ag71xx_rr(ag, AG71XX_REG_MAC_CFG2),
-		ag71xx_rr(ag, AG71XX_REG_MAC_IFCTL));
+		ag71xx_rr(ag, AG71XX_REG_MAC_IFCTL));*/
 }
 
 void ag71xx_link_adjust(struct ag71xx *ag)
@@ -814,7 +812,7 @@ static netdev_tx_t ag71xx_hard_start_xmit(struct sk_buff *skb,
 		ag71xx_add_ar8216_header(ag, skb);
 
 	if (skb->len <= 4) {
-		DBG("%s: packet len is too small\n", ag->dev->name);
+//		DBG("%s: packet len is too small\n", ag->dev->name);
 		goto err_drop;
 	}
 
@@ -849,11 +847,11 @@ static netdev_tx_t ag71xx_hard_start_xmit(struct sk_buff *skb,
 	    ring_min *= AG71XX_TX_RING_DS_PER_PKT;
 
 	if (ring->curr - ring->dirty >= ring_size - ring_min) {
-		DBG("%s: tx queue full\n", dev->name);
+//		DBG("%s: tx queue full\n", dev->name);
 		netif_stop_queue(dev);
 	}
 
-	DBG("%s: packet injected into TX queue\n", ag->dev->name);
+//	DBG("%s: packet injected into TX queue\n", ag->dev->name);
 
 	/* enable TX engine */
 	ag71xx_wr(ag, AG71XX_REG_TX_CTRL, TX_CTRL_TXE);
@@ -976,9 +974,9 @@ static int ag71xx_tx_packets(struct ag71xx *ag, bool flush)
 	int bytes_compl = 0;
 	int n = 0;
 
-	DBG("%s: processing TX ring\n", ag->dev->name);
+//	DBG("%s: processing TX ring\n", ag->dev->name);
 
-	while (ring->dirty + n != ring->curr) {
+	while (ring->curr != ring->dirty + n) {
 		unsigned int i = (ring->dirty + n) & ring_mask;
 		struct ag71xx_desc *desc = ag71xx_ring_desc(ring, i);
 		struct sk_buff *skb = ring->buf[i].skb;
@@ -1013,7 +1011,7 @@ static int ag71xx_tx_packets(struct ag71xx *ag, bool flush)
 		}
 	}
 
-	DBG("%s: %d packets sent out\n", ag->dev->name, sent);
+//	DBG("%s: %d packets sent out\n", ag->dev->name, sent);
 
 	ag->dev->stats.tx_bytes += bytes_compl;
 	ag->dev->stats.tx_packets += sent;
@@ -1043,8 +1041,8 @@ static int ag71xx_rx_packets(struct ag71xx *ag, int limit)
 	struct sk_buff *skb;
 	int done = 0;
 
-	DBG("%s: rx packets, limit=%d, curr=%u, dirty=%u\n",
-			dev->name, limit, ring->curr, ring->dirty);
+//	DBG("%s: rx packets, limit=%d, curr=%u, dirty=%u\n",
+//			dev->name, limit, ring->curr, ring->dirty);
 
 	skb_queue_head_init(&queue);
 
@@ -1057,7 +1055,7 @@ static int ag71xx_rx_packets(struct ag71xx *ag, int limit)
 		if (ag71xx_desc_empty(desc))
 			break;
 
-		if ((ring->dirty + ring_size) == ring->curr) {
+		if (ring->curr == (ring->dirty + ring_size)) {
 			ag71xx_assert(0);
 			break;
 		}
@@ -1108,8 +1106,8 @@ next:
 		netif_receive_skb(skb);
 	}
 
-	DBG("%s: rx finish, curr=%u, dirty=%u, done=%d\n",
-		dev->name, ring->curr, ring->dirty, done);
+//	DBG("%s: rx finish, curr=%u, dirty=%u, done=%d\n",
+//		dev->name, ring->curr, ring->dirty, done);
 
 	return done;
 }
@@ -1129,10 +1127,10 @@ static int ag71xx_poll(struct napi_struct *napi, int limit)
 	pdata->ddr_flush();
 	tx_done = ag71xx_tx_packets(ag, false);
 
-	DBG("%s: processing RX ring\n", dev->name);
+//	DBG("%s: processing RX ring\n", dev->name);
 	rx_done = ag71xx_rx_packets(ag, limit);
 
-	ag71xx_debugfs_update_napi_stats(ag, rx_done, tx_done);
+//	ag71xx_debugfs_update_napi_stats(ag, rx_done, tx_done);
 
 	if (rx_ring->buf[rx_ring->dirty % rx_ring_size].rx_buf == NULL)
 		goto oom;
@@ -1154,10 +1152,10 @@ static int ag71xx_poll(struct napi_struct *napi, int limit)
 		if (status & TX_STATUS_PS)
 			goto more;
 
-		DBG("%s: disable polling mode, rx=%d, tx=%d,limit=%d\n",
-			dev->name, rx_done, tx_done, limit);
+//		DBG("%s: disable polling mode, rx=%d, tx=%d,limit=%d\n",
+//			dev->name, rx_done, tx_done, limit);
 
-		napi_complete(napi);
+		napi_complete_done(napi,rx_done);
 
 		/* enable interrupts */
 		spin_lock_irqsave(&ag->lock, flags);
@@ -1167,8 +1165,8 @@ static int ag71xx_poll(struct napi_struct *napi, int limit)
 	}
 
 more:
-	DBG("%s: stay in polling mode, rx=%d, tx=%d, limit=%d\n",
-			dev->name, rx_done, tx_done, limit);
+//	DBG("%s: stay in polling mode, rx=%d, tx=%d, limit=%d\n",
+//			dev->name, rx_done, tx_done, limit);
 	return limit;
 
 oom:
@@ -1176,7 +1174,7 @@ oom:
 		pr_info("%s: out of memory\n", dev->name);
 
 	mod_timer(&ag->oom_timer, jiffies + AG71XX_OOM_REFILL);
-	napi_complete(napi);
+	napi_complete_done(napi,rx_done);
 	return 0;
 }
 
@@ -1205,11 +1203,11 @@ static irqreturn_t ag71xx_interrupt(int irq, void *dev_id)
 
 	if (likely(status & AG71XX_INT_POLL)) {
 		ag71xx_int_disable(ag, AG71XX_INT_POLL);
-		DBG("%s: enable polling mode\n", dev->name);
+//		DBG("%s: enable polling mode\n", dev->name);
 		napi_schedule(&ag->napi);
 	}
 
-	ag71xx_debugfs_update_int_stats(ag, status);
+//	ag71xx_debugfs_update_int_stats(ag, status);
 
 	return IRQ_HANDLED;
 }

@@ -28,10 +28,7 @@ void ag71xx_add_ar8216_header(struct ag71xx *ag, struct sk_buff *skb)
 int ag71xx_remove_ar8216_header(struct ag71xx *ag, struct sk_buff *skb,
 				int pktlen)
 {
-	u8 type;
-
-	type = skb->data[1] & AR8216_PACKET_TYPE_MASK;
-	switch (type) {
+	switch (skb->data[1] & AR8216_PACKET_TYPE_MASK) {
 	case AR8216_PACKET_TYPE_NORMAL:
 		break;
 
