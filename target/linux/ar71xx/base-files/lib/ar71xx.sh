@@ -619,6 +619,9 @@ ar71xx_board_detect() {
 	*EL-MINI)
 		name="el-mini"
 		;;
+	*"GL-AR750")
+		name="gl-ar750"
+		;;
 	*"GL-CONNECT INET v1")
 		name="gl-inet"
 		gl_inet_board_detect
@@ -1241,6 +1244,9 @@ ar71xx_board_detect() {
 	*"HiWiFi HC6361")
 		name="hiwifi-hc6361"
 		;;
+        *"MagicBox AC750 board")
+                name="MagicBox-AC750"
+                ;;
 	esac
 
 	[ -z "$AR71XX_MODEL" ] && [ "${machine:0:8}" = 'TP-LINK ' ] && \

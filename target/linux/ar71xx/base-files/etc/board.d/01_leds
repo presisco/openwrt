@@ -284,6 +284,7 @@ dlan-pro-1200-ac)
 	;;
 gl-ar150|\
 gl-ar300|\
+gl-ar750|\
 gl-ar300m|\
 gl-mifi)
 	ucidef_set_led_wlan "wlan" "WLAN" "$board:wlan" "phy0tpt"

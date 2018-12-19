@@ -248,6 +248,7 @@ platform_check_image() {
 	gl-ar150|\
 	gl-ar300m|\
 	gl-ar300|\
+	gl-ar750|\
 	gl-domino|\
 	gl-mifi|\
 	hiwifi-hc6361|\
@@ -375,6 +376,7 @@ platform_check_image() {
 	el-m150|\
 	el-mini|\
 	gl-inet|\
+	MagicBox-AC750|\
 	mc-mac1200r|\
 	minibox-v1|\
 	omy-g1|\

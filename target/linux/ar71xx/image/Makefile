@@ -16,6 +16,7 @@ ifeq ($(SUBTARGET),generic)
 include ./tp-link.mk
 include ./ubnt.mk
 include ./generic.mk
+include ./generic-mactoy.mk
 include ./legacy-devices.mk
 endif
 ifeq ($(SUBTARGET),nand)

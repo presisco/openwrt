@@ -242,6 +242,7 @@ get_status_led() {
 	nbg460n_550n_550nh)
 		status_led="nbg460n:green:power"
 		;;
+	gl-ar750|\
 	nbg6716)
 		status_led="$board:white:power"
 		;;
@@ -459,6 +460,9 @@ get_status_led() {
 	wlr8100)
 		status_led="sitecom:amber:status"
 		;;
+        MagicBox-AC750)
+                status_led="magicbox_ac750:status"
+                ;;
 	esac
 }
 
@@ -478,7 +482,8 @@ set_state() {
 	done)
 		status_led_on
 		case $(ar71xx_board_name) in
-		gl-ar300m)
+		gl-ar300m|\
+		gl-ar750)
 			fw_printenv lc >/dev/null 2>&1 && fw_setenv "bootcount" 0
 			;;
 		qihoo-c301)

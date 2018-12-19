@@ -1,0 +1,57 @@
+--- a/drivers/net/wireless/ath/ath10k/pci.c
++++ b/drivers/net/wireless/ath/ath10k/pci.c
+@@ -20,6 +20,8 @@
+ #include <linux/interrupt.h>
+ #include <linux/spinlock.h>
+ #include <linux/bitops.h>
++#include <linux/mtd/mtd.h>
++#include <linux/mtd/partitions.h>
+ 
+ #include "core.h"
+ #include "debug.h"
+@@ -2732,7 +2734,9 @@ static int ath10k_pci_hif_fetch_cal_eepr
+ {
+ 	u8 *caldata = NULL;
+ 	size_t calsize, i;
+-	int ret;
++        struct mtd_info *mtd = NULL;
++	int ret, retlen;
++        bool fetched = false;
+ 
+ 	if (!QCA_REV_9887(ar))
+ 		return -EOPNOTSUPP;
+@@ -2747,11 +2751,32 @@ static int ath10k_pci_hif_fetch_cal_eepr
+ 	for (i = 0; i < calsize; i++) {
+ 		ret = ath10k_pci_read_eeprom(ar, i, &caldata[i]);
+ 		if (ret)
+-			goto err_free;
++			goto err_try_flash;
+ 	}
+ 
+ 	if (!ath10k_pci_validate_cal(caldata, calsize))
+-		goto err_free;
++		goto err_try_flash;
++
++        fetched = true;
++
++err_try_flash:
++        if (!fetched) {
++                mtd = get_mtd_device_nm("art");
++                if (IS_ERR(mtd)) {
++                        ath10k_err(ar, "can not open partition [art]\n");
++                        goto err_free;
++                }
++
++                // read from 0x5000 of art
++                ret = mtd_read(mtd, 0x5000, calsize, &retlen, caldata);
++                put_mtd_device(mtd);
++                if ((retlen != calsize) || ret) {
++                        ath10k_err(ar, "can not read caldata from partition [art]\n");
++                        goto err_free;
++                }
++
++                ath10k_info(ar, "caldata loaded from partition [art]\n");
++        }
+ 
+ 	*data = caldata;
+ 	*data_len = calsize;

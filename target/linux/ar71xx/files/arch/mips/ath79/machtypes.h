@@ -100,6 +100,7 @@ enum ath79_mach_type {
 	ATH79_MACH_GL_AR150,			/* GL-AR150 support */
 	ATH79_MACH_GL_AR300,			/* GL-AR300 */
 	ATH79_MACH_GL_AR300M,			/* GL-AR300M */
+	ATH79_MACH_GL_AR750,			/* GL.iNet GL-AR750 */
 	ATH79_MACH_GL_DOMINO,			/* Domino */
 	ATH79_MACH_GL_INET,			/* GL-CONNECT GL-INET */
 	ATH79_MACH_GL_MIFI,			/* GL-MIFI support */
@@ -295,6 +296,7 @@ enum ath79_mach_type {
 	ATH79_MACH_ZBT_WE1526,			/* Zbtlink ZBT-WE1526 */
 	ATH79_MACH_ZCN_1523H_2,			/* Zcomax ZCN-1523H-2-xx */
 	ATH79_MACH_ZCN_1523H_5,			/* Zcomax ZCN-1523H-5-xx */
+        ATH79_MACH_MAGICBOX_AC750,                /* Mactoy MagicBox AC750 */
 };
 
 #endif /* _ATH79_MACHTYPE_H */
