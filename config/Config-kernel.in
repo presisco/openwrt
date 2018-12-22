@@ -173,15 +173,15 @@ config KERNEL_KPROBE_EVENT
 
 config KERNEL_AIO
 	bool "Compile the kernel with asynchronous IO support"
-	default n
+	default y
 
 config KERNEL_FHANDLE
 	bool "Compile the kernel with support for fhandle syscalls"
-	default n
+	default y
 
 config KERNEL_FANOTIFY
 	bool "Compile the kernel with modern file notification support"
-	default n
+	default y
 
 config KERNEL_BLK_DEV_BSG
 	bool "Compile the kernel with SCSI generic v4 support for any block device"
@@ -785,3 +785,25 @@ config KERNEL_DEVKMEM
 	  Say Y here if you want to support the /dev/kmem device. The
 	  /dev/kmem device is rarely used, but can be used for certain
 	  kind of kernel debugging operations.
+
+#
+# compile optimiziation setting
+#
+choice
+	prompt "Compiler optimization level"
+	default KERNEL_CC_OPTIMIZE_FOR_PERFORMANCE
+
+config KERNEL_CC_OPTIMIZE_FOR_PERFORMANCE
+	bool "Optimize for performance"
+	help
+	  This is the default optimization level for the kernel, building
+	  with the "-O2" compiler flag for best performance and most
+	  helpful compile-time warnings.
+
+config KERNEL_CC_OPTIMIZE_FOR_SIZE
+	bool "Optimize for size"
+	help
+	  Enabling this option will pass "-Os" instead of "-O2" to
+	  your compiler resulting in a smaller kernel.
+
+endchoice
