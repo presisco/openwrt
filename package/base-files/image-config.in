@@ -164,8 +164,9 @@ if VERSIONOPT
 			If unspecified, it defaults to OpenWrt.
 
 	config VERSION_NUMBER
-		string "18.06.1"
+		string 
 		prompt "Release version number"
+		default "18.06.1"
 		help
 			This is the release version number embedded in the image.
 			If unspecified, it defaults to SNAPSHOT for the master branch
