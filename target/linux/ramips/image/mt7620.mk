@@ -233,7 +233,7 @@ define Device/gl-mt300a
   DTS := GL-MT300A
   IMAGE_SIZE := $(ralink_default_fw_size_16M)
   DEVICE_TITLE := GL-Inet GL-MT300A
-  DEVICE_PACKAGES := kmod-usb2 kmod-usb-ohci kmod-mt76
+  DEVICE_PACKAGES := kmod-usb2 kmod-usb-ohci kmod-sdhci-mt7620
 endef
 TARGET_DEVICES += gl-mt300a
 
