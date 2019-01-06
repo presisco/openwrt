@@ -13,7 +13,7 @@ __target_inc=1
 DEVICE_TYPE?=router
 
 # Default packages - the really basic set
-DEFAULT_PACKAGES:=base-files libc libgcc busybox dropbear mtd uci opkg netifd fstools uclient-fetch logd block-mount \
+DEFAULT_PACKAGES:=base-files libc libgcc odhcp6c odhcpd busybox dropbear mtd uci opkg netifd fstools uclient-fetch logd block-mount \
 kmod-nf-nathelper kmod-nf-nathelper-extra kmod-ipt-raw \
 kmod-nls-cp932 kmod-nls-cp936 kmod-nls-cp950 \
 kmod-fs-exfat kmod-fs-ext4 kmod-fs-f2fs kmod-fs-msdos kmod-fs-vfat kmod-fuse ntfs-3g-utils e2fsprogs f2fs-tools mkf2fs fdisk \
