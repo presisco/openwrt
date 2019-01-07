@@ -13,7 +13,7 @@ __target_inc=1
 DEVICE_TYPE?=router
 
 # Default packages - the really basic set
-DEFAULT_PACKAGES:=base-files libc libgcc odhcp6c odhcpd busybox dropbear mtd uci opkg netifd fstools uclient-fetch logd block-mount \
+DEFAULT_PACKAGES:=base-files libc libgcc odhcp6c busybox dropbear mtd uci opkg netifd fstools uclient-fetch logd block-mount \
 kmod-nf-nathelper kmod-nf-nathelper-extra kmod-ipt-raw \
 kmod-nls-cp932 kmod-nls-cp936 kmod-nls-cp950 \
 kmod-fs-exfat kmod-fs-ext4 kmod-fs-f2fs kmod-fs-msdos kmod-fs-vfat kmod-fuse ntfs-3g-utils e2fsprogs f2fs-tools mkf2fs fdisk \
@@ -26,8 +26,8 @@ luci-app-wrtbwmon luci-app-aria2
 # For nas targets
 DEFAULT_PACKAGES.nas:=fdisk lsblk mdadm automount autosamba luci-app-usb-printer 
 # For router targets
-DEFAULT_PACKAGES.router:=dnsmasq-full iptables ppp ppp-mod-pppoe firewall \
-kmod-ipt-offload kmod-tcp-bbr kmod-nf-nathelper kmod-nf-nathelper-extra kmod-ipt-raw iptables-mod-fullconenat \
+DEFAULT_PACKAGES.router:=dnsmasq-full iptables ppp ppp-mod-pppoe firewall ebtables odhcpd \
+kmod-ipt-offload kmod-tcp-bbr kmod-nf-nathelper kmod-nf-nathelper-extra kmod-ipt-raw iptables-mod-fullconenat kmod-ipt-nat6	kmod-nf-nat6 kmod-nft-nat6 \
 luci-app-sfe luci-app-flowoffload luci-app-sqm luci-app-upnp luci-app-wifischedule luci-app-ramfree luci-proto-relay \
 luci-app-wireguard luci-app-ipsec-vpnd luci-app-openvpn-server luci-app-pptp-server luci-app-zerotier luci-app-frpc luci-app-dnsforwarder \
 luci-app-mwan3 luci-app-mwan3helper luci-app-accesscontrol luci-app-guest-wifi ddns-scripts_aliyun luci-app-usb-printer luci-app-ddns
