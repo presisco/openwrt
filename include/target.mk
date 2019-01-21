@@ -20,19 +20,18 @@ kmod-fs-exfat kmod-fs-ext4 kmod-fs-f2fs kmod-fs-msdos kmod-fs-vfat kmod-fuse ntf
 kmod-mtd-rw block-mount lsblk kmod-usb-uhci kmod-usb-ohci kmod-usb-storage-extras kmod-scsi-core \
 automount autosamba \
 luci-ssl-openssl luci-theme-material luci-app-adbyby-plus luci-app-autoreboot \
-luci-app-filetransfer luci-app-ssr-plus luci-app-vsftpd luci-app-xlnetacc \
-luci-app-arpbind luci-app-vlmcsd luci-app-ramfree \
-luci-app-wrtbwmon luci-app-aria2
+luci-app-filetransfer luci-app-ssr-plus luci-app-vsftpd \
+luci-app-vlmcsd luci-app-ramfree luci-app-aria2
 # For nas targets
 DEFAULT_PACKAGES.nas:=fdisk lsblk mdadm automount autosamba luci-app-usb-printer 
 # For router targets
 DEFAULT_PACKAGES.router:=dnsmasq-full iptables ppp ppp-mod-pppoe firewall ebtables odhcpd \
 kmod-ipt-offload kmod-tcp-bbr kmod-nf-nathelper kmod-nf-nathelper-extra kmod-ipt-raw iptables-mod-fullconenat kmod-ipt-nat6	kmod-nf-nat6 kmod-nft-nat6 \
-luci-app-sfe luci-app-flowoffload luci-app-sqm luci-app-upnp luci-app-wifischedule luci-app-ramfree luci-proto-relay \
-luci-app-wireguard luci-app-ipsec-vpnd luci-app-openvpn-server luci-app-pptp-server luci-app-zerotier luci-app-frpc luci-app-dnsforwarder \
-luci-app-mwan3 luci-app-mwan3helper luci-app-accesscontrol luci-app-guest-wifi ddns-scripts_aliyun luci-app-usb-printer luci-app-ddns
+luci-app-sfe luci-app-flowoffload luci-app-sqm luci-app-upnp luci-app-wifischedule luci-proto-relay \
+luci-app-mwan3 luci-app-mwan3helper luci-app-accesscontrol luci-app-guest-wifi luci-app-usb-printer \
+luci-app-arpbind luci-app-xlnetacc luci-app-wrtbwmon 
 
-DEFAULT_PACKAGES.bootloader:=
+DEFAULT_PACKAGES.bootloader:= 
 
 ifneq ($(DUMP),)
   all: dumpinfo
