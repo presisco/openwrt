@@ -20,7 +20,7 @@ kmod-fs-exfat kmod-fs-ext4 kmod-fs-f2fs kmod-fs-msdos kmod-fs-vfat kmod-fuse ntf
 kmod-mtd-rw block-mount lsblk kmod-usb-uhci kmod-usb-ohci kmod-usb-storage-extras kmod-scsi-core \
 automount autosamba \
 luci-ssl-openssl luci-theme-material luci-app-adbyby-plus luci-app-autoreboot \
-luci-app-filetransfer luci-app-ssr-plus luci-app-vsftpd \
+luci-app-filetransfer luci-app-ssr-plus luci-app-vsftpd luci-app-dnsforwarder \
 luci-app-vlmcsd luci-app-ramfree luci-app-aria2
 # For nas targets
 DEFAULT_PACKAGES.nas:=fdisk lsblk mdadm automount autosamba luci-app-usb-printer 
