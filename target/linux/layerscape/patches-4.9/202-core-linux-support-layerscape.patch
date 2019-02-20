@@ -356,7 +356,7 @@ Signed-off-by: Yangbo Lu <yangbo.lu@nxp.com>
  	for_each_set_bit(bit, (unsigned long *)mask_addr, NETDEV_FEATURE_COUNT)
 --- a/include/linux/netdevice.h
 +++ b/include/linux/netdevice.h
-@@ -1509,6 +1509,8 @@ enum netdev_priv_flags {
+@@ -1512,6 +1512,8 @@ enum netdev_priv_flags {
   *	@if_port:	Selectable AUI, TP, ...
   *	@dma:		DMA channel
   *	@mtu:		Interface MTU value
@@ -365,7 +365,7 @@ Signed-off-by: Yangbo Lu <yangbo.lu@nxp.com>
   *	@type:		Interface hardware type
   *	@hard_header_len: Maximum hardware header length.
   *	@min_header_len:  Minimum hardware header length
-@@ -1735,6 +1737,8 @@ struct net_device {
+@@ -1738,6 +1740,8 @@ struct net_device {
  	unsigned char		dma;
  
  	unsigned int		mtu;
@@ -384,7 +384,7 @@ Signed-off-by: Yangbo Lu <yangbo.lu@nxp.com>
  void  __kfree_skb(struct sk_buff *skb);
  extern struct kmem_cache *skbuff_head_cache;
  
-@@ -3081,6 +3082,7 @@ static inline void skb_free_datagram_loc
+@@ -3082,6 +3083,7 @@ static inline void skb_free_datagram_loc
  }
  int skb_kill_datagram(struct sock *sk, struct sk_buff *skb, unsigned int flags);
  int skb_copy_bits(const struct sk_buff *skb, int offset, void *to, int len);
