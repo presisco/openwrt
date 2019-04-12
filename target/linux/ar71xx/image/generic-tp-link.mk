@@ -87,7 +87,7 @@ TARGET_DEVICES += archer-c5-v1
 define Device/archer-c7-v1
   $(Device/tplink-8mlzma)
   DEVICE_TITLE := TP-LINK Archer C7 v1
-  DEVICE_PACKAGES := kmod-usb-core kmod-usb2 kmod-usb-ledtrig-usbport kmod-ath10k ath10k-firmware-qca988x
+  DEVICE_PACKAGES := kmod-usb-core kmod-usb2 kmod-usb-ledtrig-usbport
   BOARDNAME := ARCHER-C7
   DEVICE_PROFILE := ARCHERC7
   TPLINK_HWID := 0x75000001
@@ -146,8 +146,8 @@ define Device/archer-c7-v5
   DEVICE_TITLE := TP-LINK Archer C7 v5
   BOARDNAME := ARCHER-C7-V5
   TPLINK_BOARD_ID := ARCHER-C7-V5
-  IMAGE_SIZE := 15104k
-  MTDPARTS := spi0.0:128k(factory-uboot)ro,128k(u-boot)ro,64k@0x50000(art)ro,1536k@0xc0000(kernel),13824k(rootfs),15360k@0xc0000(firmware)
+  IMAGE_SIZE := 15360k
+  MTDPARTS := spi0.0:128k(factory-uboot)ro,128k(u-boot)ro,64k@0x50000(art)ro,128k@0x60000(info)ro,1536k@0xc0000(kernel),13824k(rootfs),15360k@0xc0000(firmware)
   SUPPORTED_DEVICES := archer-c7-v5
 endef
 TARGET_DEVICES += archer-c7-v5
