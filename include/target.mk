@@ -14,12 +14,12 @@ DEVICE_TYPE?=router
 
 # Default packages - the really basic set
 DEFAULT_PACKAGES:=base-files libc libgcc busybox dropbear mtd uci opkg netifd fstools uclient-fetch logd block-mount \
-kmod-nf-nathelper kmod-nf-nathelper-extra kmod-ipt-raw \
+kmod-nf-nathelper kmod-nf-nathelper-extra kmod-ipt-raw kmod-ebtables kmod-ebtables-ipv6 kmod-ebtables-ipv4 kmod-ebtables-watchers \
 kmod-nls-cp932 kmod-nls-cp936 kmod-nls-cp950 \
 kmod-fs-exfat kmod-fs-ext4 kmod-fs-f2fs kmod-fs-msdos kmod-fs-vfat kmod-fuse ntfs-3g-utils e2fsprogs f2fs-tools mkf2fs fdisk \
 kmod-mtd-rw block-mount lsblk kmod-usb-uhci kmod-usb-ohci kmod-usb-storage-extras kmod-scsi-core \
 automount autosamba \
-luci-ssl-openssl luci-theme-material luci-app-adbyby-plus luci-app-ssr-plus luci-app-vsftpd luci-app-xlnetacc luci-app-arpbind luci-app-vlmcsd luci-app-ramfree luci-app-wrtbwmon \
+luci-ssl-openssl luci-theme-material luci-app-adbyby-plus luci-app-ssr-plus luci-app-v2ray-pro luci-app-vsftpd luci-app-xlnetacc luci-app-arpbind luci-app-vlmcsd luci-app-ramfree luci-app-wrtbwmon \
 luci-app-aria2 ariang
 # For nas targets
 DEFAULT_PACKAGES.nas:=block-mount fdisk lsblk mdadm
