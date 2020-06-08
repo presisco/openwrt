@@ -130,7 +130,7 @@ define Device/nec_wg2600hp
 	DEVICE_TITLE := NEC Aterm WG2600HP
 	IMAGES := sysupgrade.bin
 	IMAGE/sysupgrade.bin := append-kernel | append-rootfs | pad-rootfs | append-metadata
-	DEVICE_PACKAGES := ath10k-firmware-qca99x0-ct
+	DEVICE_PACKAGES := ath10k-firmware-qca99x0-ct-htt
 endef
 TARGET_DEVICES += nec_wg2600hp
 
