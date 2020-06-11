@@ -389,6 +389,37 @@ define Device/netgear_r6350
 endef
 TARGET_DEVICES += netgear_r6350
 
+define Device/netgear_sercomm_nand
+  BLOCKSIZE := 128k
+  PAGESIZE := 2048
+  KERNEL_SIZE := 4096k
+  UBINIZE_OPTS := -E 5
+  IMAGES += factory.img kernel.bin rootfs.bin
+  IMAGE/factory.img := pad-extra 2048k | append-kernel | pad-to 6144k | \
+	append-ubi | pad-to $$$$(BLOCKSIZE) | sercom-footer | pad-to 128 | \
+	zip $$$$(SERCOMM_HWNAME).bin | sercom-seal
+  IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+  IMAGE/kernel.bin := append-kernel
+  IMAGE/rootfs.bin := append-ubi | check-size $$$$(IMAGE_SIZE)
+  DEVICE_VENDOR := NETGEAR
+  DEVICE_PACKAGES := kmod-mt7603 kmod-usb3 kmod-usb-ledtrig-usbport wpad-basic
+endef
+DEVICE_VARS += SERCOMM_HWNAME SERCOMM_HWID SERCOMM_HWVER SERCOMM_SWVER
+
+define Device/netgear_r6800
+  $(Device/netgear_sercomm_nand)
+  DTS := R6800
+  DEVICE_MODEL := R6800
+  SERCOMM_HWNAME := R6950
+  SERCOMM_HWID := BZV
+  SERCOMM_HWVER := A001
+  SERCOMM_SWVER := 0x0062
+  IMAGE_SIZE := 40960k
+  DEVICE_TITLE := Netgear R6800
+  DEVICE_PACKAGES += kmod-mt7615e
+endef
+TARGET_DEVICES += netgear_r6800
+
 define Device/MikroTik
   BLOCKSIZE := 64k
   IMAGE_SIZE := 16128k
