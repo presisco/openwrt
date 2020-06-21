@@ -118,7 +118,7 @@ define Device/linksys_ea8500
 	IMAGES := factory.bin sysupgrade.bin
 	IMAGE/factory.bin := append-kernel | pad-to $$$${KERNEL_SIZE} | append-ubi
 	DEVICE_TITLE := Linksys EA8500
-	DEVICE_PACKAGES := ath10k-firmware-qca99x0-ct
+	DEVICE_PACKAGES := ath10k-firmware-qca99x0-ct-htt
 endef
 TARGET_DEVICES += linksys_ea8500
 
@@ -130,7 +130,7 @@ define Device/nec_wg2600hp
 	DEVICE_TITLE := NEC Aterm WG2600HP
 	IMAGES := sysupgrade.bin
 	IMAGE/sysupgrade.bin := append-kernel | append-rootfs | pad-rootfs | append-metadata
-	DEVICE_PACKAGES := ath10k-firmware-qca99x0-ct-htt
+	DEVICE_PACKAGES := ath10k-firmware-qca99x0-ct
 endef
 TARGET_DEVICES += nec_wg2600hp
 
@@ -190,7 +190,7 @@ define Device/netgear_r7800
 	BOARD_NAME := r7800
 	SUPPORTED_DEVICES += r7800
 	DEVICE_TITLE := Netgear Nighthawk X4S R7800
-	DEVICE_PACKAGES := ath10k-firmware-qca9984-ct
+	DEVICE_PACKAGES := ath10k-firmware-qca9984-ct-htt
 endef
 TARGET_DEVICES += netgear_r7800
 
