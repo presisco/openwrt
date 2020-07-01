@@ -13,11 +13,18 @@ __target_inc=1
 DEVICE_TYPE?=router
 
 # Default packages - the really basic set
-DEFAULT_PACKAGES:=base-files libc libgcc busybox dropbear mtd uci opkg netifd fstools uclient-fetch logd urandom-seed urngd
+DEFAULT_PACKAGES:=base-files libc libgcc busybox dropbear mtd uci opkg netifd fstools uclient-fetch logd urandom-seed urngd \
+ca-certificates luci-ssl-openssl luci-compat luci-proto-ipv6 luci-proto-ppp luci-proto-relay luci-proto-wireguard \
+luci-app-upnp luci-app-adbyby-plus luci-app-ssr-plus luci-app-unblockneteasemusic-mini \
+luci-app-vlmcsd luci-app-ramfree luci-app-accesscontrol \
+luci-app-vsftpd luci-app-ksmbd ksmbd-utils ksmbd-avahi-service \
+automount kmod-scsi-core kmod-usb-storage-extras kmod-usb-storage-uas kmod-fs-ext4 kmod-mtd-rw \
+lean-adapt-settings openssl-util htop ethtool iperf3
 # For nas targets
 DEFAULT_PACKAGES.nas:=block-mount fdisk lsblk mdadm
 # For router targets
-DEFAULT_PACKAGES.router:=dnsmasq iptables ip6tables ppp ppp-mod-pppoe firewall odhcpd-ipv6only odhcp6c kmod-ipt-offload
+DEFAULT_PACKAGES.router:=dnsmasq-full iptables ip6tables ppp ppp-mod-pppoe firewall odhcpd-ipv6only odhcp6c \
+kmod-fast-classifier
 DEFAULT_PACKAGES.bootloader:=
 
 ifneq ($(DUMP),)
@@ -162,7 +169,7 @@ LINUX_RECONF_DIFF = $(call __linux_confcmd,$(filter-out $(LINUX_RECONFIG_TARGET)
 ifeq ($(DUMP),1)
   BuildTarget=$(BuildTargets/DumpCurrent)
 
-  CPU_CFLAGS = -Os -pipe
+  CPU_CFLAGS = -O2 -pipe
   ifneq ($(findstring mips,$(ARCH)),)
     ifneq ($(findstring mips64,$(ARCH)),)
       CPU_TYPE ?= mips64
@@ -174,6 +181,7 @@ ifeq ($(DUMP),1)
     CPU_CFLAGS_mips64 = -mips64 -mtune=mips64 -mabi=64
     CPU_CFLAGS_24kc = -mips32r2 -mtune=24kc
     CPU_CFLAGS_74kc = -mips32r2 -mtune=74kc
+    CPU_CFLAGS_1004kc = -mips32r2 -mtune=1004kc
     CPU_CFLAGS_octeonplus = -march=octeon+ -mabi=64
   endif
   ifeq ($(ARCH),i386)

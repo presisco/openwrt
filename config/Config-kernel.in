@@ -200,15 +200,15 @@ config KERNEL_KPROBE_EVENTS
 
 config KERNEL_AIO
 	bool "Compile the kernel with asynchronous IO support"
-	default n
+	default y
 
 config KERNEL_FHANDLE
 	bool "Compile the kernel with support for fhandle syscalls"
-	default n
+	default y
 
 config KERNEL_FANOTIFY
 	bool "Compile the kernel with modern file notification support"
-	default n
+	default y
 
 config KERNEL_BLK_DEV_BSG
 	bool "Compile the kernel with SCSI generic v4 support for any block device"
@@ -837,7 +837,7 @@ config KERNEL_SQUASHFS_FRAGMENT_CACHE_SIZE
 #
 choice
 	prompt "Compiler optimization level"
-	default KERNEL_CC_OPTIMIZE_FOR_SIZE if SMALL_FLASH
+	default KERNEL_CC_OPTIMIZE_FOR_PERFORMANCE
 
 config KERNEL_CC_OPTIMIZE_FOR_PERFORMANCE
 	bool "Optimize for performance"

@@ -145,7 +145,7 @@ menuconfig INITOPT
 
 menuconfig VERSIONOPT
 	bool "Version configuration options" if IMAGEOPT
-	default n
+	default y
 	help
 		These options allow to override the version information embedded in
 		the /etc/openwrt_version, /etc/openwrt_release, /etc/banner,
@@ -166,6 +166,7 @@ if VERSIONOPT
 	config VERSION_NUMBER
 		string
 		prompt "Release version number"
+		default "19.07"
 		help
 			This is the release version number embedded in the image.
 			If unspecified, it defaults to SNAPSHOT for the master branch

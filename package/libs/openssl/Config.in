@@ -4,7 +4,7 @@ comment "Build Options"
 
 config OPENSSL_OPTIMIZE_SPEED
 	bool
-	default y if x86_64 || i386
+	default y
 	prompt "Enable optimization for speed instead of size"
 	select OPENSSL_WITH_ASM
 	help
@@ -16,7 +16,7 @@ config OPENSSL_OPTIMIZE_SPEED
 
 config OPENSSL_WITH_ASM
 	bool
-	default y if !SMALL_FLASH || !arm
+	default y
 	prompt "Compile with optimized assembly code"
 	depends on !arc
 	help
@@ -248,6 +248,7 @@ config OPENSSL_ENGINE
 config OPENSSL_ENGINE_BUILTIN
 	bool "Build chosen engines into libcrypto"
 	depends on OPENSSL_ENGINE
+	default y
 	help
 		This builds all chosen engines into libcrypto.so, instead of building
 		them as dynamic engines in separate packages.
@@ -258,6 +259,7 @@ config OPENSSL_ENGINE_BUILTIN_AFALG
 	bool
 	prompt "Acceleration support through AF_ALG sockets engine"
 	depends on OPENSSL_ENGINE_BUILTIN && KERNEL_AIO
+	default y
 	select PACKAGE_libopenssl-conf
 	help
 		This enables use of hardware acceleration through the
@@ -267,6 +269,7 @@ config OPENSSL_ENGINE_BUILTIN_DEVCRYPTO
 	bool
 	prompt "Acceleration support through /dev/crypto"
 	depends on OPENSSL_ENGINE_BUILTIN
+	default y
 	select PACKAGE_libopenssl-conf
 	help
 		This enables use of hardware acceleration through OpenBSD

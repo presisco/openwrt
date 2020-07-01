@@ -54,7 +54,7 @@ menu "Global build settings"
 		default n
 
 	config BUILD_PATENTED
-		default n
+		default y
 		bool "Compile with support for patented functionality"
 		help
 		  When this option is disabled, software which provides patented functionality
@@ -62,7 +62,7 @@ menu "Global build settings"
 		  functionality, this optional support will get disabled for this package.
 
 	config BUILD_NLS
-		default n
+		default y
 		bool "Compile with full language support"
 		help
 		  When this option is enabled, packages are built with the full versions of
