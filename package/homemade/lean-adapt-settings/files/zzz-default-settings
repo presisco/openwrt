@@ -1,0 +1,28 @@
+#!/bin/sh
+
+uci set luci.main.lang=zh_cn
+uci commit luci
+
+uci set system.@system[0].timezone=CST-8
+uci set system.@system[0].zonename=Asia/Shanghai
+uci commit system
+
+uci set fstab.@global[0].anon_mount=1
+uci commit fstab
+
+ln -sf /sbin/ip /usr/bin/ip
+ln -sf /bin/uclient-fetch /usr/bin/wget-ssl
+
+# sed -i '/REDIRECT --to-ports 53/d' /etc/firewall.user
+# echo "iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 53" >> /etc/firewall.user
+# echo "iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 53" >> /etc/firewall.user
+
+sed -i '/log-facility/d' /etc/dnsmasq.conf
+echo "log-facility=/dev/null" >> /etc/dnsmasq.conf
+
+sed -i 's/cbi.submit\"] = true/cbi.submit\"] = \"1\"/g' /usr/lib/lua/luci/dispatcher.lua
+
+rm -rf /tmp/luci-modulecache/
+rm -f /tmp/luci-indexcache
+
+exit 0
