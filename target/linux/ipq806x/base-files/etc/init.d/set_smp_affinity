@@ -7,9 +7,9 @@ STOP=98
 rps_flow_cnt=4096
 core_count=$(grep -c processor /proc/cpuinfo)
 rps_sock_flow_ent=`expr $core_count \* $rps_flow_cnt`
-queue_cores="0 1"
+queue_cores="1"
 eth_core="0"
-wifi_core="1"
+wifi_core="0"
 usb_core="0"
 
 ############### util functions ###############
