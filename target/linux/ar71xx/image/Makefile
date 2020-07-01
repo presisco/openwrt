@@ -17,6 +17,7 @@ include ./generic.mk
 include ./generic-legacy-devices.mk
 include ./generic-tp-link.mk
 include ./generic-ubnt.mk
+include ./generic-mactoy.mk
 endif
 ifeq ($(SUBTARGET),tiny)
 include ./tiny.mk

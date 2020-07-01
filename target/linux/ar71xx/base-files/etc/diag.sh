@@ -560,6 +560,9 @@ get_status_led() {
 	wlr8100)
 		status_led="sitecom:amber:status"
 		;;
+        MagicBox-AC750)
+                status_led="magicbox_ac750:status"
+                ;;
 	esac
 }
 

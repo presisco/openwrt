@@ -1572,6 +1572,9 @@ ar71xx_board_detect() {
 	*"ZCN-1523H-5")
 		name="zcn-1523h-5"
 		;;
+        *"MagicBox AC750 board")
+                name="MagicBox-AC750"
+                ;;
 	esac
 
 	[ -z "$AR71XX_MODEL" ] && [ "${machine:0:8}" = 'TP-LINK ' ] && \
