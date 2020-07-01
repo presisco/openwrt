@@ -22,6 +22,7 @@ ipq40xx_setup_interfaces()
 	openmesh,a62)
 		ucidef_set_interfaces_lan_wan "eth1" "eth0"
 		;;
+	asus,rt-acrh17|\
 	asus,rt-ac58u|\
 	zyxel,nbg6617)
 		ucidef_set_interfaces_lan_wan "eth0" "eth1"
@@ -73,6 +74,7 @@ ipq40xx_setup_macs()
 	local board="$1"
 
 	case "$board" in
+	asus,rt-acrh17|\
 	asus,rt-ac58u)
 		CI_UBIPART=UBI_DEV
 		wan_mac=$(mtd_get_mac_binary_ubi Factory 20486)
