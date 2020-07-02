@@ -232,6 +232,13 @@ m2m)
 	set_wifi_led "$boardname:blue:wifi"
 	ucidef_set_led_netdev "eth" "Ethernet" "$boardname:green:wan" "eth0"
 	;;
+linksys,ea7500-v2)
+	ucidef_set_led_netdev "lan1" "lan1 link" "$boardname:green:lan1" "lan1" "link"
+	ucidef_set_led_netdev "lan2" "lan2 link" "$boardname:green:lan2" "lan2" "link"
+	ucidef_set_led_netdev "lan3" "lan3 link" "$boardname:green:lan3" "lan3" "link"
+	ucidef_set_led_netdev "lan4" "lan4 link" "$boardname:green:lan4" "lan4" "link"
+	ucidef_set_led_netdev "wan" "wan link" "$boardname:green:wan" "wan" "link"
+	;;
 mikrotik,rbm11g)
 	ucidef_set_rssimon "wlan0" "200000" "1"
 	ucidef_set_led_rssi "rssilow" "RSSILOW" "$boardname:green:rssi0" "wlan0" "1" "100"

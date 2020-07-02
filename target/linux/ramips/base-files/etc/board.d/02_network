@@ -692,6 +692,11 @@ ramips_setup_macs()
 	zyxel,keenetic-start)
 		wan_mac=$(mtd_get_mac_binary factory 40)
 		;;
+	linksys,ea7500-v2)
+		lan_mac=$(mtd_get_mac_ascii devinfo hw_mac_addr)
+		wan_mac=$lan_mac
+		label_mac=$lan_mac
+		;;
 	*)
 		lan_mac=$(cat /sys/class/net/eth0/address)
 		wan_mac=$(macaddr_add "$lan_mac" 1)

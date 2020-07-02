@@ -479,6 +479,23 @@ define Device/re350-v1
 endef
 TARGET_DEVICES += re350-v1
 
+define Device/linksys_ea7500-v2
+  DTS := EA7500-V2
+  BLOCKSIZE := 128k
+  PAGESIZE := 2048
+  KERNEL_SIZE := 4096k
+  IMAGE_SIZE := 36864k
+  DEVICE_TITLE := Linksys EA7500v2
+  DEVICE_VARIANT := v2
+  DEVICE_PACKAGES := kmod-usb3 kmod-mt7615e wpad-basic uboot-envtools
+  UBINIZE_OPTS := -E 5
+  IMAGES := sysupgrade.bin factory.bin
+  IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata | check-size $$$$(IMAGE_SIZE)
+  IMAGE/factory.bin := append-kernel | pad-to $$$$(KERNEL_SIZE) | \
+       append-ubi | linksys-image type=EA7500v2 | check-size $$$$(IMAGE_SIZE)
+endef
+TARGET_DEVICES += linksys_ea7500-v2
+
 define Device/re6500
   DTS := RE6500
   DEVICE_TITLE := Linksys RE6500
