@@ -7,9 +7,9 @@ STOP=98
 rps_flow_cnt=4096
 core_count=$(grep -c processor /proc/cpuinfo)
 rps_sock_flow_ent=`expr $core_count \* $rps_flow_cnt`
-queue_cores="1"
-eth_core="0"
-wifi_core="0"
+queue_cores="0 1"
+eth_core="0 1"
+wifi_core="1"
 usb_core="0"
 
 ############### util functions ###############
@@ -53,6 +53,7 @@ set_core_mask() {
 	local file=$1
 	local cores=$2
 	local mask="$(gen_hex_mask "$cores")"
+	echo "write mask $mask to $file"
 	echo $mask > $file
 }
 
@@ -170,6 +171,7 @@ set_irq_pattern() {
 set_irq_interleave() {
 	local name_pattern=$1
 	local cores=$2
+	local step_size=$3
 	
 	local files=""
 	for irq in `grep "$name_pattern" /proc/interrupts | cut -d: -f1 | sed 's, *,,'`
@@ -178,15 +180,15 @@ set_irq_interleave() {
 		/proc/irq/$irq/smp_affinity"
 	done
 	
-	set_core_mask_round $files $cores $step_size
+	set_core_mask_round "$files" "$cores" $step_size
 }
 
 set_irqs() {
-	#dma
-	set_irq_pattern dma "$usb_core"
-
 	#ethernet
-	set_irq_pattern nss "$eth_core"
+	set_irq_interleave nss "$eth_core" 2
+
+	#bam_dma
+	set_irq_interleave bam_dma "$eth_core" 1
 
 	#pcie
 	set_irq_pattern pcie "$wifi_core"
