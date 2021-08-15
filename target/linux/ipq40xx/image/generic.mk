@@ -186,6 +186,23 @@ define Device/asus_rt-ac58u
 endef
 TARGET_DEVICES += asus_rt-ac58u
 
+define Device/asus_rt-acrh17
+	$(call Device/FitImageLzma)
+	DEVICE_VENDOR := ASUS
+	DEVICE_MODEL := RT-ACRH17
+	DEVICE_DTS := qcom-ipq4019-rt-acrh17
+	BLOCKSIZE := 128k
+	PAGESIZE := 2048
+	DTB_SIZE := 65536
+	IMAGE_SIZE := 20439364
+	FILESYSTEMS := squashfs
+	UIMAGE_NAME:=$(shell echo -e '\03\01\01\01RT-AC82U')
+	KERNEL_INITRAMFS := $$(KERNEL) | uImage none
+	KERNEL_INITRAMFS_SUFFIX := -factory.trx
+	DEVICE_PACKAGES := ipq-wifi-asus_rt-acrh17 ath10k-firmware-qca9984-ct kmod-usb-ledtrig-usbport
+endef
+TARGET_DEVICES += asus_rt-acrh17
+
 define Device/avm_fritzbox-4040
 	$(call Device/FitImageLzma)
 	DEVICE_VENDOR := AVM
