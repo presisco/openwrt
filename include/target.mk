@@ -25,7 +25,15 @@ DEFAULT_PACKAGES:=\
 	uci \
 	uclient-fetch \
 	urandom-seed \
-	urngd
+	urngd \
+	htop iperf3 \
+	block-mount kmod-fs-antfs kmod-fs-exfat kmod-fs-ext4 kmod-fs-ksmbd kmod-fs-vfat kmod-fs-f2fs gdisk antfs-mount \
+	kmod-usb-ohci kmod-usb-uhci kmod-usb-storage-uas kmod-usb-storage-extras kmod-scsi-generic \
+	kmod-nls-cp437 kmod-nls-cp932 kmod-nls-cp936 kmod-nls-cp950 kmod-nls-iso8859-1 kmod-nls-utf8 \
+	ksmbd-avahi-service ksmbd-server ksmbd-utils \
+	luci-ssl luci-app-vlmcsd luci-app-vsftpd luci-app-ksmbd luci-app-ssr-plus \
+	kmod-fast-classifier coremark openssl-util ethtool
+	
 
 ifneq ($(CONFIG_SELINUX),)
 DEFAULT_PACKAGES+=busybox-selinux procd-selinux
@@ -43,11 +51,10 @@ DEFAULT_PACKAGES.nas:=\
 	mdadm
 # For router targets
 DEFAULT_PACKAGES.router:=\
-	dnsmasq \
+	dnsmasq-full \
 	firewall \
 	ip6tables \
 	iptables \
-	kmod-ipt-offload \
 	odhcp6c \
 	odhcpd-ipv6only \
 	ppp \
@@ -191,7 +198,7 @@ LINUX_RECONF_DIFF = $(SCRIPT_DIR)/kconfig.pl - '>' $(call __linux_confcmd,$(filt
 ifeq ($(DUMP),1)
   BuildTarget=$(BuildTargets/DumpCurrent)
 
-  CPU_CFLAGS = -Os -pipe
+  CPU_CFLAGS = -O2 -pipe
   ifneq ($(findstring mips,$(ARCH)),)
     ifneq ($(findstring mips64,$(ARCH)),)
       CPU_TYPE ?= mips64
