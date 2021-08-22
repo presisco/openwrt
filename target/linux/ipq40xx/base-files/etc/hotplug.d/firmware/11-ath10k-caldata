@@ -76,6 +76,7 @@ case "$FIRMWARE" in
 	asus,map-ac2200)
 		caldata_extract_ubi "Factory" 0x1000 0x2f20
 		;;
+	asus,rt-acrh17 |\
 	asus,rt-ac58u)
 		CI_UBIPART=UBI_DEV
 		caldata_extract_ubi "Factory" 0x1000 0x2f20
@@ -185,7 +186,6 @@ case "$FIRMWARE" in
 	asus,map-ac2200)
 		caldata_extract_ubi "Factory" 0x5000 0x2f20
 		;;
-	asus,rt-acrh17 |\
 	asus,rt-ac58u)
 		CI_UBIPART=UBI_DEV
 		caldata_extract_ubi "Factory" 0x5000 0x2f20
