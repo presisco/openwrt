@@ -1,5 +1,8 @@
-src-git packages https://git.openwrt.org/feed/packages.git;openwrt-21.02
-src-git luci https://git.openwrt.org/project/luci.git;openwrt-21.02
-src-git routing https://git.openwrt.org/feed/routing.git;openwrt-21.02
-src-git telephony https://git.openwrt.org/feed/telephony.git;openwrt-21.02
+src-git packages https://github.com/openwrt/packages.git;openwrt-21.02
+src-git luci https://github.com/openwrt/luci.git;openwrt-21.02
+src-git routing https://github.com/openwrt/routing.git;openwrt-21.02
+src-git telephony https://github.com/openwrt/telephony.git;openwrt-21.02
+src-git helloworld https://github.com/presisco/helloworld.git;master
+src-git openclash https://github.com/vernesong/OpenClash.git;master
+src-link lean /home/buildbot/lean/package/lean
 #src-link custom /usr/src/openwrt/custom-feed
