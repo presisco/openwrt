@@ -27,13 +27,12 @@ DEFAULT_PACKAGES:=\
 	urandom-seed \
 	urngd \
 	htop iperf3 \
-	block-mount kmod-fs-antfs kmod-fs-exfat kmod-fs-ext4 kmod-fs-ksmbd kmod-fs-vfat kmod-fs-f2fs gdisk antfs-mount \
-	kmod-usb-ohci kmod-usb-uhci kmod-usb-storage-uas kmod-usb-storage-extras kmod-scsi-generic \
+	block-mount kmod-fs-antfs kmod-fs-exfat kmod-fs-ext4 kmod-fs-ksmbd kmod-fs-vfat kmod-fs-f2fs gdisk antfs-mount blkid \
+	kmod-usb-ohci kmod-usb-uhci kmod-usb-storage-uas kmod-usb-storage-extras kmod-scsi-generic smartmontools \
 	kmod-nls-cp437 kmod-nls-cp932 kmod-nls-cp936 kmod-nls-cp950 kmod-nls-iso8859-1 kmod-nls-utf8 \
 	ksmbd-avahi-service ksmbd-server ksmbd-utils \
-	luci-ssl luci-app-vlmcsd luci-app-vsftpd luci-app-ksmbd luci-app-ssr-plus \
-	kmod-fast-classifier coremark openssl-util ethtool
-	
+	luci-ssl luci-app-ksmbd luci-app-sqm luci-app-smartdns luci-app-upnp \
+	coremark openssl-util ethtool
 
 ifneq ($(CONFIG_SELINUX),)
 DEFAULT_PACKAGES+=busybox-selinux procd-selinux
