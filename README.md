@@ -60,6 +60,15 @@ packages to OpenWrt, please find the fitting repository below.
 * [OpenWrt Routing](https://github.com/openwrt/routing): Packages specifically
   focused on (mesh) routing.
 
+* [related Lean packages](https://github.com/coolsnowwolf/lede): packages maintained by coolsnowwolf
+  useful stuff like shortcut-fe, mtk wifi driver, adbyby...
+  
+* [related helloworld packages](https://github.com/presisco/helloworld): for proxy
+  based on https://github.com/fw876/helloworld, tweaked to run on openwrt 21.02
+  
+* [related openclash packages](https://github.com/vernesong/OpenClash): for proxy
+  openclash with luci interface
+
 ## Support Information
 
 For a list of supported devices see the [OpenWrt Hardware Database](https://openwrt.org/supported_devices)
