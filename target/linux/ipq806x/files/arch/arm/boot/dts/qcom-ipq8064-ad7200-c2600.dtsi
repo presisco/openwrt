@@ -304,7 +304,7 @@
 
 	mtd-mac-address = <&defaultmac 0x8>;
 	mtd-mac-address-increment = <1>;
-
+	
 	fixed-link {
 		speed = <1000>;
 		full-duplex;

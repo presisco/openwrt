@@ -148,6 +148,15 @@ define KernelPackage/mac80211/config
 			  like Netgear R7800.
 	endif
 
+	if PACKAGE_kmod-qca-nss-drv
+		config PACKAGE_MAC80211_NSS_SUPPORT
+			bool "Enable NSS support for IPQ platform"
+			default y
+			help
+			  This option enables support for NSS in boards
+			  like Netgear R7800.
+	endif
+
 	config PACKAGE_MAC80211_DEBUGFS
 		bool "Export mac80211 internals in DebugFS"
 		select KERNEL_DEBUG_FS
