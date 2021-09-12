@@ -13,7 +13,7 @@
  		gmac0: ethernet@37000000 {
  			device_type = "network";
  			compatible = "qcom,ipq806x-gmac";
-@@ -1492,7 +1498,132 @@
+@@ -1492,7 +1498,104 @@
  			regulator-always-on;
  		};
  
@@ -71,34 +71,6 @@
 +			qcom,mirror-enabled;
 +			qcom,rmnet-enabled;
 +			qcom,clmap-enabled;
-+		};
-+
-+		nss1: nss@40800000 {
-+			compatible = "qcom,nss";
-+			qcom,low-frequency = <733000000>; /* orig value 110000000 */
-+			qcom,mid-frequency = <733000000>; /* orig value 550000000 */
-+			qcom,max-frequency = <733000000>;
-+
-+			interrupts = <GIC_SPI 214 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 233 IRQ_TYPE_LEVEL_HIGH>;
-+			reg = <0x36400000 0x1000 0x39010000 0x10000>;
-+			reg-names = "nphys", "vphys";
-+			resets = <&gcc UBI32_CORE2_CLKRST_CLAMP_RESET>,
-+				 <&gcc UBI32_CORE2_CLAMP_RESET>,
-+				 <&gcc UBI32_CORE2_AHB_RESET>,
-+				 <&gcc UBI32_CORE2_AXI_RESET>;
-+			reset-names = "clkrst-clamp", "clamp", "ahb", "axi";
-+
-+			qcom,id = <1>;
-+			qcom,num-irq = <2>;
-+			qcom,load-addr = <0x40800000>;
-+			qcom,num-queue = <2>;
-+			qcom,turbo-frequency;
-+
-+			qcom,capwap-enabled;
-+			qcom,crypto-enabled;
-+			qcom,dtls-enabled;
-+			qcom,ipsec-enabled;
 +		};
 +
 +		crypto1: crypto@38000000 {

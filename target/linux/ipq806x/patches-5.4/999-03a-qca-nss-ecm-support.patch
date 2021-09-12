@@ -1082,7 +1082,7 @@
  	/* Since more than one interface can be attached to a bridge,
  	 * there still maybe an alternate path for netconsole to use;
  	 * therefore there is no reason for a NETDEV_RELEASE event.
-@@ -784,3 +794,64 @@ void br_dev_update_stats(struct net_devi
+@@ -780,6 +790,67 @@ void br_dev_update_stats(struct net_devi
  	u64_stats_update_end(&stats->syncp);
  }
  EXPORT_SYMBOL_GPL(br_dev_update_stats);
@@ -1147,6 +1147,9 @@
 +}
 +EXPORT_SYMBOL_GPL(br_port_dev_get);
 +/* QCA NSS ECM support - End */
+ 
+ bool br_port_flag_is_set(const struct net_device *dev, unsigned long flag)
+ {
 --- a/net/bridge/br_private.h
 +++ b/net/bridge/br_private.h
 @@ -1258,4 +1258,9 @@ void br_do_proxy_suppress_arp(struct sk_
