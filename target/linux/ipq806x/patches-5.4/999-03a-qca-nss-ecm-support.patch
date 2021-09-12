@@ -1082,7 +1082,7 @@
  	/* Since more than one interface can be attached to a bridge,
  	 * there still maybe an alternate path for netconsole to use;
  	 * therefore there is no reason for a NETDEV_RELEASE event.
-@@ -780,3 +790,64 @@ void br_dev_update_stats(struct net_devi
+@@ -784,3 +794,64 @@ void br_dev_update_stats(struct net_devi
  	u64_stats_update_end(&stats->syncp);
  }
  EXPORT_SYMBOL_GPL(br_dev_update_stats);
