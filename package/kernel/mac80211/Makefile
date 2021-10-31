@@ -138,24 +138,6 @@ endef
 
 define KernelPackage/mac80211/config
   if PACKAGE_kmod-mac80211
-  
-        if PACKAGE_kmod-qca-nss-drv
-		config PACKAGE_MAC80211_NSS_SUPPORT
-			bool "Enable NSS support for IPQ platform"
-			default y
-			help
-			  This option enables support for NSS in boards
-			  like Netgear R7800.
-	endif
-
-	if PACKAGE_kmod-qca-nss-drv
-		config PACKAGE_MAC80211_NSS_SUPPORT
-			bool "Enable NSS support for IPQ platform"
-			default y
-			help
-			  This option enables support for NSS in boards
-			  like Netgear R7800.
-	endif
 
 	if PACKAGE_kmod-qca-nss-drv
 		config PACKAGE_MAC80211_NSS_SUPPORT
