@@ -25,7 +25,17 @@ DEFAULT_PACKAGES:=\
 	uci \
 	uclient-fetch \
 	urandom-seed \
-	urngd
+	urngd \
+	htop iperf3 \
+	block-mount kmod-fs-antfs kmod-fs-exfat kmod-fs-ext4 kmod-fs-ksmbd kmod-fs-vfat kmod-fs-f2fs kmod-fs-nfs-v4 kmod-fs-nfsd fdisk gdisk lsblk antfs-mount blkid kmod-dax kmod-dm kmod-iosched-bfq \
+	kmod-usb-ohci kmod-usb-ehci kmod-usb-uhci kmod-usb-storage-uas kmod-usb-storage-extras kmod-scsi-generic smartmontools \
+	kmod-nls-cp437 kmod-nls-cp932 kmod-nls-cp936 kmod-nls-cp950 kmod-nls-iso8859-1 kmod-nls-utf8 \
+	kmod-shortcut-fe-cm \
+	ksmbd-avahi-service ksmbd-server ksmbd-utils \
+	luci-ssl luci-app-ksmbd luci-app-sqm luci-compat luci-app-commands luci-app-filetransfer luci-app-frpc luci-app-nfs luci-app-vlmcsd luci-app-vsftpd  luci-app-turboacc luci-app-ttyd \
+	luci-mod-dashboard luci-proto-openconnect luci-proto-wireguard \
+	luci-theme-bootstrap luci-theme-material luci-theme-openwrt-2020 \
+	coremark openssl-util ethtool
 
 ifneq ($(CONFIG_SELINUX),)
 DEFAULT_PACKAGES+=busybox-selinux procd-selinux
@@ -43,15 +53,16 @@ DEFAULT_PACKAGES.nas:=\
 	mdadm
 # For router targets
 DEFAULT_PACKAGES.router:=\
-	dnsmasq \
+	dnsmasq-full \
 	firewall \
 	ip6tables \
 	iptables \
-	kmod-ipt-offload \
 	odhcp6c \
 	odhcpd-ipv6only \
 	ppp \
-	ppp-mod-pppoe
+	ppp-mod-pppoe \
+	luci-app-openclash luci-app-openvpn-server luci-app-smartdns luci-app-sqm luci-app-udpxy luci-app-upnp luci-app-uugamebooster luci-app-e2guardian \
+	kmod-ipt-conntrack-extra kmod-ipt-extra kmod-nf-conntrack-netlink kmod-nfnetlink kmod-nft-nat
 
 ifneq ($(DUMP),)
   all: dumpinfo
