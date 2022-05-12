@@ -89,10 +89,11 @@ feeds/packages/libs/qtbase
 feeds/packages/libs/qttools
 feeds/packages/libs/rblibtorrent
 feeds/packages/libs/wxbase
+feeds/packages/multimedia/aliyundrive-webdav
+feeds/packages/multimedia/aliyundrive-fuse
 feeds/packages/multimedia/gmediarender
 feeds/packages/multimedia/UnblockNeteaseMusic
 feeds/packages/multimedia/UnblockNeteaseMusic-Go
-feeds/packages/net/aliyundrive-webdav
 feeds/packages/net/amule
 feeds/packages/net/antileech
 feeds/packages/net/baidupcs-web
