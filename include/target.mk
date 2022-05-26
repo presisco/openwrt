@@ -31,7 +31,7 @@ DEFAULT_PACKAGES:=\
 	kmod-usb-ohci kmod-usb-ehci kmod-usb-uhci kmod-usb-storage-uas kmod-usb-storage-extras kmod-scsi-generic smartmontools \
 	kmod-nls-cp437 kmod-nls-cp932 kmod-nls-cp936 kmod-nls-cp950 kmod-nls-iso8859-1 kmod-nls-utf8 \
 	ksmbd-avahi-service ksmbd-server ksmbd-utils \
-	luci-ssl luci-app-ksmbd luci-app-sqm luci-compat luci-app-commands luci-app-filetransfer luci-app-frpc luci-app-nfs luci-app-vlmcsd luci-app-vsftpd  luci-app-turboacc luci-app-ttyd \
+	luci-ssl luci-app-ksmbd luci-app-sqm luci-compat luci-app-commands luci-app-filetransfer luci-app-frpc luci-app-nfs luci-app-vlmcsd luci-app-vsftpd luci-app-ttyd \
 	luci-mod-dashboard luci-proto-openconnect luci-proto-wireguard \
 	luci-theme-bootstrap luci-theme-material luci-theme-openwrt-2020 \
 	coremark openssl-util ethtool
@@ -70,7 +70,7 @@ DEFAULT_PACKAGES.router:=\
 	odhcpd-ipv6only \
 	ppp \
 	ppp-mod-pppoe \
-	luci-app-openclash luci-app-openvpn luci-app-smartdns luci-app-sqm luci-app-udpxy luci-app-upnp luci-app-e2guardian \
+	luci-app-openclash luci-app-openvpn luci-app-smartdns luci-app-sqm luci-app-udpxy luci-app-upnp \
 	kmod-ipt-conntrack-extra kmod-ipt-extra kmod-ipt-offload kmod-nf-conntrack-netlink kmod-nfnetlink kmod-nft-nat
 
 ifneq ($(DUMP),)
