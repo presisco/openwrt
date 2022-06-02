@@ -1,0 +1,212 @@
+CONFIG_TARGET_x86=y
+CONFIG_TARGET_x86_64=y
+CONFIG_TARGET_x86_64_DEVICE_generic=y
+CONFIG_DEVEL=y
+CONFIG_TOOLCHAINOPTS=y
+CONFIG_BUILD_NLS=y
+CONFIG_BUILD_PATENTED=y
+CONFIG_CGROUPFS_MOUNT_KERNEL_CGROUPS=y
+CONFIG_DOCKER_CGROUP_OPTIONS=y
+CONFIG_DOCKER_CHECK_CONFIG=y
+CONFIG_DOCKER_NET_MACVLAN=y
+CONFIG_DOCKER_NET_OVERLAY=y
+CONFIG_DOCKER_NET_TFTP=y
+CONFIG_DOCKER_OPTIONAL_FEATURES=y
+CONFIG_DOCKER_STO_BTRFS=y
+CONFIG_DOCKER_STO_DEVMAPPER=y
+CONFIG_DOCKER_STO_EXT4=y
+# CONFIG_FEED_helloworld is not set
+# CONFIG_FEED_lean is not set
+# CONFIG_FEED_openclash is not set
+CONFIG_GCC_USE_GRAPHITE=y
+# CONFIG_GDB is not set
+# CONFIG_GRUB_IMAGES is not set
+CONFIG_GRUB_TITLE="OpenWrt-22.03"
+CONFIG_IMAGEOPT=y
+CONFIG_INSTALL_GFORTRAN=y
+CONFIG_ISO_IMAGES=y
+CONFIG_KERNEL_BLK_DEV_BSG=y
+CONFIG_KERNEL_BTRFS_FS_POSIX_ACL=y
+CONFIG_KERNEL_CFQ_GROUP_IOSCHED=y
+CONFIG_KERNEL_CGROUP_DEVICE=y
+CONFIG_KERNEL_CGROUP_FREEZER=y
+CONFIG_KERNEL_CGROUP_HUGETLB=y
+CONFIG_KERNEL_CGROUP_NET_PRIO=y
+CONFIG_KERNEL_CGROUP_PERF=y
+CONFIG_KERNEL_EXT4_FS_POSIX_ACL=y
+CONFIG_KERNEL_EXT4_FS_SECURITY=y
+CONFIG_KERNEL_FS_POSIX_ACL=y
+CONFIG_KERNEL_HUGETLBFS=y
+CONFIG_KERNEL_HUGETLB_PAGE=y
+# CONFIG_KERNEL_MEMCG_KMEM is not set
+CONFIG_KERNEL_MEMCG_SWAP_ENABLED=y
+CONFIG_KERNEL_NET_CLS_CGROUP=y
+CONFIG_KERNEL_PERF_EVENTS=y
+CONFIG_KERNEL_TRANSPARENT_HUGEPAGE=y
+CONFIG_KERNEL_TRANSPARENT_HUGEPAGE_ALWAYS=y
+CONFIG_LIBCURL_OPENSSL=y
+# CONFIG_LIBCURL_WOLFSSL is not set
+CONFIG_LIBSODIUM_MINIMAL=y
+CONFIG_LUCI_LANG_zh_Hans=y
+CONFIG_OPENSSL_ENGINE_BUILTIN=y
+CONFIG_OPENSSL_ENGINE_BUILTIN_DEVCRYPTO=y
+CONFIG_PACKAGE_adblock=y
+CONFIG_PACKAGE_adguardhome=y
+CONFIG_PACKAGE_aliyundrive-webdav=y
+CONFIG_PACKAGE_amd64-microcode=y
+CONFIG_PACKAGE_blockd=y
+# CONFIG_PACKAGE_bnx2-firmware is not set
+CONFIG_PACKAGE_btrfs-progs=y
+CONFIG_PACKAGE_cgroup-tools=y
+CONFIG_PACKAGE_cgroupfs-mount=y
+CONFIG_PACKAGE_containerd=y
+CONFIG_PACKAGE_coreutils-base64=y
+CONFIG_PACKAGE_coreutils-sort=y
+CONFIG_PACKAGE_dns2socks=y
+CONFIG_PACKAGE_docker=y
+CONFIG_PACKAGE_docker-compose=y
+CONFIG_PACKAGE_dockerd=y
+CONFIG_PACKAGE_intel-microcode=y
+# CONFIG_PACKAGE_kmod-amazon-ena is not set
+CONFIG_PACKAGE_kmod-ata-ahci=y
+CONFIG_PACKAGE_kmod-ata-core=y
+# CONFIG_PACKAGE_kmod-bnx2 is not set
+CONFIG_PACKAGE_kmod-br-netfilter=y
+CONFIG_PACKAGE_kmod-crypto-acompress=y
+CONFIG_PACKAGE_kmod-crypto-authenc=y
+CONFIG_PACKAGE_kmod-crypto-hw-ccp=y
+CONFIG_PACKAGE_kmod-crypto-rsa=y
+CONFIG_PACKAGE_kmod-cryptodev=y
+CONFIG_PACKAGE_kmod-dummy=y
+# CONFIG_PACKAGE_kmod-forcedeth is not set
+CONFIG_PACKAGE_kmod-fs-autofs4=y
+CONFIG_PACKAGE_kmod-fs-btrfs=y
+CONFIG_PACKAGE_kmod-i40e=y
+CONFIG_PACKAGE_kmod-iavf=y
+CONFIG_PACKAGE_kmod-igbvf=y
+CONFIG_PACKAGE_kmod-igc=y
+CONFIG_PACKAGE_kmod-ikconfig=y
+CONFIG_PACKAGE_kmod-ipt-physdev=y
+CONFIG_PACKAGE_kmod-iptunnel=y
+CONFIG_PACKAGE_kmod-irqbypass=y
+CONFIG_PACKAGE_kmod-iscsi-initiator=y
+CONFIG_PACKAGE_kmod-ixgbevf=y
+CONFIG_PACKAGE_kmod-kvm-amd=y
+CONFIG_PACKAGE_kmod-kvm-intel=y
+CONFIG_PACKAGE_kmod-kvm-x86=y
+CONFIG_PACKAGE_kmod-lib-lzo=y
+CONFIG_PACKAGE_kmod-lib-raid6=y
+CONFIG_PACKAGE_kmod-lib-xor=y
+CONFIG_PACKAGE_kmod-lib-zlib-deflate=y
+CONFIG_PACKAGE_kmod-lib-zlib-inflate=y
+CONFIG_PACKAGE_kmod-lib-zstd=y
+CONFIG_PACKAGE_kmod-loop=y
+CONFIG_PACKAGE_kmod-macvlan=y
+CONFIG_PACKAGE_kmod-nf-ipvs=y
+CONFIG_PACKAGE_kmod-r8125=y
+CONFIG_PACKAGE_kmod-sched-act-vlan=y
+CONFIG_PACKAGE_kmod-sched-bpf=y
+CONFIG_PACKAGE_kmod-sched-connmark=y
+CONFIG_PACKAGE_kmod-sched-flower=y
+CONFIG_PACKAGE_kmod-sched-ipset=y
+CONFIG_PACKAGE_kmod-sched-mqprio=y
+CONFIG_PACKAGE_kmod-tcp-bbr=y
+CONFIG_PACKAGE_kmod-tcp-hybla=y
+CONFIG_PACKAGE_kmod-tcp-scalable=y
+# CONFIG_PACKAGE_kmod-tg3 is not set
+CONFIG_PACKAGE_kmod-veth=y
+CONFIG_PACKAGE_kmod-vmxnet3=y
+CONFIG_PACKAGE_kmod-vxlan=y
+CONFIG_PACKAGE_libattr=y
+CONFIG_PACKAGE_libcgroup=y
+CONFIG_PACKAGE_libev=y
+CONFIG_PACKAGE_libiconv-full=y
+CONFIG_PACKAGE_libintl-full=y
+CONFIG_PACKAGE_libip4tc=y
+CONFIG_PACKAGE_libip6tc=y
+CONFIG_PACKAGE_liblzo=y
+CONFIG_PACKAGE_libnetwork=y
+CONFIG_PACKAGE_libparted=y
+CONFIG_PACKAGE_libpcre=y
+CONFIG_PACKAGE_libseccomp=y
+CONFIG_PACKAGE_libsodium=y
+CONFIG_PACKAGE_libudns=y
+CONFIG_PACKAGE_libuhttpd-openssl=y
+CONFIG_PACKAGE_libustream-openssl=y
+# CONFIG_PACKAGE_libustream-wolfssl is not set
+# CONFIG_PACKAGE_libwolfssl is not set
+CONFIG_PACKAGE_luci-app-adblock=y
+CONFIG_PACKAGE_luci-app-aliyundrive-webdav=y
+CONFIG_PACKAGE_luci-app-diskman=y
+CONFIG_PACKAGE_luci-app-dockerman=y
+CONFIG_PACKAGE_luci-app-qbittorrent=y
+CONFIG_PACKAGE_luci-app-ssr-plus=y
+# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Libev_Server is not set
+# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Libev_Client is not set
+# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Libev_Server is not set
+CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Rust_Client=y
+CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_Plugin=y
+CONFIG_PACKAGE_luci-i18n-adblock-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-aliyundrive-webdav-zh_Hans=y
+CONFIG_PACKAGE_luci-i18n-base-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-commands-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-dashboard-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-dockerman-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-firewall-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-frpc-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-ksmbd-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-openvpn-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-opkg-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-smartdns-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-sqm-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-ssr-plus-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-ttyd-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-udpxy-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-uhttpd-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-upnp-zh-cn=y
+CONFIG_PACKAGE_luci-lib-docker=y
+# CONFIG_PACKAGE_luci-lib-nixio_notls is not set
+CONFIG_PACKAGE_luci-lib-nixio_openssl=y
+CONFIG_PACKAGE_luci-lib-px5g=y
+# CONFIG_PACKAGE_luci-ssl is not set
+CONFIG_PACKAGE_luci-ssl-openssl=y
+CONFIG_PACKAGE_microsocks=y
+CONFIG_PACKAGE_musl-fts=y
+CONFIG_PACKAGE_nano-full=y
+CONFIG_PACKAGE_parted=y
+CONFIG_PACKAGE_pdnsd-alt=y
+# CONFIG_PACKAGE_px5g-wolfssl is not set
+CONFIG_PACKAGE_qBittorrent-static=y
+CONFIG_PACKAGE_runc=y
+CONFIG_PACKAGE_shadowsocks-rust-sslocal=y
+CONFIG_PACKAGE_shadowsocksr-libev-ssr-check=y
+CONFIG_PACKAGE_shadowsocksr-libev-ssr-local=y
+CONFIG_PACKAGE_shadowsocksr-libev-ssr-redir=y
+CONFIG_PACKAGE_simple-obfs-client=y
+CONFIG_PACKAGE_tcping=y
+CONFIG_PACKAGE_tini=y
+CONFIG_PACKAGE_uxc=y
+CONFIG_PACKAGE_v2ray-plugin=y
+CONFIG_PACKAGE_xray-core=y
+CONFIG_PARTED_READLINE=y
+CONFIG_PCRE_JIT_ENABLED=y
+CONFIG_TARGET_KERNEL_PARTSIZE=32
+CONFIG_TARGET_OPTIMIZATION="-O3 -pipe -march=skylake"
+CONFIG_TARGET_OPTIONS=y
+CONFIG_TARGET_ROOTFS_PARTSIZE=984
+# CONFIG_TARGET_ROOTFS_SQUASHFS is not set
+CONFIG_VERSIONOPT=y
+CONFIG_VERSION_BUG_URL=""
+CONFIG_VERSION_CODE=""
+CONFIG_VERSION_CODE_FILENAMES=y
+CONFIG_VERSION_DIST="OpenWrt"
+CONFIG_VERSION_FILENAMES=y
+CONFIG_VERSION_HOME_URL=""
+CONFIG_VERSION_HWREV=""
+CONFIG_VERSION_MANUFACTURER=""
+CONFIG_VERSION_MANUFACTURER_URL=""
+CONFIG_VERSION_NUMBER="22.03"
+CONFIG_VERSION_PRODUCT=""
+CONFIG_VERSION_REPO="https://downloads.openwrt.org/releases/22.03-SNAPSHOT"
+CONFIG_VERSION_SUPPORT_URL=""
+CONFIG_VHDX_IMAGES=y

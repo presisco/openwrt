@@ -31,10 +31,11 @@ DEFAULT_PACKAGES:=\
 	kmod-usb-ohci kmod-usb-ehci kmod-usb-uhci kmod-usb-storage-uas kmod-usb-storage-extras kmod-scsi-generic smartmontools \
 	kmod-nls-cp437 kmod-nls-cp932 kmod-nls-cp936 kmod-nls-cp950 kmod-nls-iso8859-1 kmod-nls-utf8 \
 	ksmbd-avahi-service ksmbd-server ksmbd-utils \
-	luci-ssl luci-app-ksmbd luci-app-sqm luci-compat luci-app-commands luci-app-filetransfer luci-app-frpc luci-app-nfs luci-app-vlmcsd luci-app-vsftpd luci-app-ttyd \
-	luci-mod-dashboard luci-proto-openconnect luci-proto-wireguard \
+	luci-ssl luci-app-ksmbd luci-app-sqm luci-compat luci-newapi luci-app-commands luci-app-filetransfer luci-app-nfs luci-app-vlmcsd luci-app-vsftpd luci-app-ttyd luci-app-uhttpd \
+	luci-mod-dashboard \
 	luci-theme-bootstrap luci-theme-material luci-theme-openwrt-2020 \
-	coremark openssl-util ethtool
+	luci-lib-px5g \
+	coremark openssl-util ethtool irqbalance
 
 ifneq ($(CONFIG_SELINUX),)
 DEFAULT_PACKAGES+=busybox-selinux procd-selinux
@@ -71,7 +72,14 @@ DEFAULT_PACKAGES.router:=\
 	ppp \
 	ppp-mod-pppoe \
 	luci-app-openclash luci-app-openvpn luci-app-smartdns luci-app-sqm luci-app-udpxy luci-app-upnp \
-	kmod-ipt-conntrack-extra kmod-ipt-extra kmod-ipt-offload kmod-nf-conntrack-netlink kmod-nfnetlink kmod-nft-nat
+	luci-proto-openconnect luci-proto-wireguard luci-app-frpc \
+	iptables iptables-nft ip6tables-nft xtables-nft \
+	kmod-ipt-extra kmod-ipt-offload kmod-ipt-nat kmod-ipt-nat-extra kmod-ipt-nat6 \
+	kmod-nf-ipt6 kmod-nf-nathelper kmod-nf-nathelper-extra \
+	kmod-nft-nat kmod-nft-compat \
+	kmod-sched kmod-sched-ctinfo sqm-scripts-extra \
+	UDPspeeder
+	
 
 ifneq ($(DUMP),)
   all: dumpinfo
