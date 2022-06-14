@@ -4,5 +4,5 @@ src-git-full routing https://git.openwrt.org/feed/routing.git^4b2b6b3d2b0178d254
 src-git-full telephony https://git.openwrt.org/feed/telephony.git^1d2031a5c82816483c51bca15649e2957fbe2bc2
 src-git helloworld https://github.com/fw876/helloworld.git;master
 src-git openclash https://github.com/vernesong/OpenClash.git;master
-src-link lean /home/buildbot/lean-pkgs
+src-link lean /home/dev/lean-pkgs
 #src-link custom /usr/src/openwrt/custom-feed
