@@ -29,6 +29,9 @@ friendlyarm,nanopi-r2s)
 friendlyarm,nanopi-r4s)
 	set_interface_core 10 "eth0"
 	set_interface_core 20 "eth1"
+	echo 5 > /sys/class/net/eth0/queues/rx-0/rps_cpus
+	echo a > /sys/class/net/eth1/queues/rx-0/rps_cpus
+
 	;;
 esac
 
