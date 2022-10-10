@@ -1,6 +1,6 @@
-src-git-full packages https://git.openwrt.org/feed/packages.git^426ccd2e0cf56394017d32b864cd66a570852706
-src-git-full luci https://git.openwrt.org/project/luci.git^487e58a0a61f8d2396893bd9fa6695269b1fd1d3
-src-git-full routing https://git.openwrt.org/feed/routing.git^8872359011eee64981804f7ed42d5d6b54add6d8
+src-git-full packages https://git.openwrt.org/feed/packages.git^088222c39da9c20f5c93769d009443d7bbf294c7
+src-git-full luci https://git.openwrt.org/project/luci.git^709d48b72657084a27db1fb6fc0a4a4e8939552f
+src-git-full routing https://git.openwrt.org/feed/routing.git^85028704f688a6768d3f10d5d3c10a799a121e0d
 src-git-full telephony https://git.openwrt.org/feed/telephony.git^1d2031a5c82816483c51bca15649e2957fbe2bc2
 src-git helloworld https://github.com/fw876/helloworld.git;master
 src-git openclash https://github.com/vernesong/OpenClash.git;master

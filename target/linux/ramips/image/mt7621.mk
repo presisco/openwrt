@@ -1108,6 +1108,7 @@ TARGET_DEVICES += linksys_ea8100-v2
 
 define Device/linksys_re6500
   $(Device/dsa-migration)
+  $(Device/uimage-lzma-loader)
   IMAGE_SIZE := 7872k
   DEVICE_VENDOR := Linksys
   DEVICE_MODEL := RE6500
@@ -1784,6 +1785,17 @@ define Device/ubnt_unifi-6-lite
   IMAGE_SIZE := 15424k
 endef
 TARGET_DEVICES += ubnt_unifi-6-lite
+
+define Device/ubnt_unifi-flexhd
+  $(Device/dsa-migration)
+  DEVICE_VENDOR := Ubiquiti
+  DEVICE_MODEL := UniFi FlexHD
+  DEVICE_DTS_CONFIG := config@2
+  KERNEL := kernel-bin | lzma | fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb
+  DEVICE_PACKAGES += kmod-mt7603 kmod-mt7615e kmod-mt7615-firmware
+  IMAGE_SIZE := 15552k
+endef
+TARGET_DEVICES += ubnt_unifi-flexhd
 
 define Device/ubnt_unifi-nanohd
   $(Device/dsa-migration)
