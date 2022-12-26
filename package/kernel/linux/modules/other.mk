@@ -119,6 +119,24 @@ endef
 $(eval $(call KernelPackage,btmrvl))
 
 
+define KernelPackage/btsdio
+  SUBMENU:=$(OTHER_MENU)
+  TITLE:=Bluetooth HCI SDIO driver
+  DEPENDS:=+kmod-bluetooth +kmod-mmc
+  KCONFIG:= \
+	CONFIG_BT_HCIBTSDIO
+  FILES:= \
+	$(LINUX_DIR)/drivers/bluetooth/btsdio.ko
+  AUTOLOAD:=$(call AutoProbe,btsdio)
+endef
+
+define KernelPackage/btsdio/description
+ Kernel support for Bluetooth device with SDIO interface
+endef
+
+$(eval $(call KernelPackage,btsdio))
+
+
 define KernelPackage/dma-buf
   SUBMENU:=$(OTHER_MENU)
   TITLE:=DMA shared buffer support
@@ -357,7 +375,6 @@ define KernelPackage/mmc
 	CONFIG_MMC_BLOCK \
 	CONFIG_MMC_DEBUG=n \
 	CONFIG_MMC_UNSAFE_RESUME=n \
-	CONFIG_MMC_BLOCK_BOUNCE=y \
 	CONFIG_MMC_TIFM_SD=n \
 	CONFIG_MMC_WBSD=n \
 	CONFIG_SDIO_UART=n
@@ -647,22 +664,6 @@ endef
 
 $(eval $(call KernelPackage,rtc-pcf2127))
 
-define KernelPackage/rtc-pt7c4338
-  SUBMENU:=$(OTHER_MENU)
-  TITLE:=Pericom PT7C4338 RTC support
-  DEFAULT:=m if ALL_KMODS && RTC_SUPPORT
-  DEPENDS:=+kmod-i2c-core
-  KCONFIG:=CONFIG_RTC_DRV_PT7C4338 \
-	CONFIG_RTC_CLASS=y
-  FILES:=$(LINUX_DIR)/drivers/rtc/rtc-pt7c4338.ko
-  AUTOLOAD:=$(call AutoProbe,rtc-pt7c4338)
-endef
-
-define KernelPackage/rtc-pt7c4338/description
- Kernel module for Pericom PT7C4338 i2c RTC chip
-endef
-
-$(eval $(call KernelPackage,rtc-pt7c4338))
 
 define KernelPackage/rtc-rs5c372a
   SUBMENU:=$(OTHER_MENU)
