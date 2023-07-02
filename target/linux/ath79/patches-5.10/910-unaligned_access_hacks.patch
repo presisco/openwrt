@@ -267,7 +267,7 @@
  		case IPV6_2292HOPOPTS:
 --- a/net/ipv6/exthdrs.c
 +++ b/net/ipv6/exthdrs.c
-@@ -948,7 +948,7 @@ static bool ipv6_hop_jumbo(struct sk_buf
+@@ -941,7 +941,7 @@ static bool ipv6_hop_jumbo(struct sk_buf
  		goto drop;
  	}
  
@@ -292,7 +292,7 @@
  #endif /* _LINUX_TYPES_H */
 --- a/net/ipv4/af_inet.c
 +++ b/net/ipv4/af_inet.c
-@@ -1469,8 +1469,8 @@ struct sk_buff *inet_gro_receive(struct
+@@ -1471,8 +1471,8 @@ struct sk_buff *inet_gro_receive(struct
  	if (unlikely(ip_fast_csum((u8 *)iph, 5)))
  		goto out_unlock;
  
