@@ -25,7 +25,17 @@ DEFAULT_PACKAGES:=\
 	uci \
 	uclient-fetch \
 	urandom-seed \
-	urngd
+	urngd \
+	htop iperf3 \
+	block-mount kmod-fs-antfs kmod-fs-exfat kmod-fs-ext4 kmod-fs-ksmbd kmod-fs-vfat kmod-fs-f2fs kmod-fs-nfs-v4 kmod-fs-nfsd fdisk gdisk lsblk antfs-mount blkid kmod-dax kmod-dm kmod-iosched-bfq \
+	kmod-usb-ohci kmod-usb-ehci kmod-usb-uhci kmod-usb-storage-uas kmod-usb-storage-extras kmod-scsi-generic smartmontools \
+	kmod-nls-cp437 kmod-nls-cp932 kmod-nls-cp936 kmod-nls-cp950 kmod-nls-iso8859-1 kmod-nls-utf8 \
+	ksmbd-avahi-service ksmbd-server ksmbd-utils \
+	luci-ssl luci-app-ksmbd luci-app-sqm luci-compat luci-newapi luci-app-commands luci-app-filetransfer luci-app-nfs luci-app-vlmcsd luci-app-vsftpd luci-app-ttyd luci-app-uhttpd \
+	luci-mod-dashboard \
+	luci-theme-bootstrap luci-theme-material luci-theme-openwrt-2020 \
+	coremark openssl-util ethtool irqbalance
+
 
 ifneq ($(CONFIG_SELINUX),)
 DEFAULT_PACKAGES+=busybox-selinux procd-selinux
@@ -53,14 +63,22 @@ DEFAULT_PACKAGES.nas:=\
 	mdadm
 # For router targets
 DEFAULT_PACKAGES.router:=\
-	dnsmasq \
+	dnsmasq-full \
 	firewall4 \
 	nftables \
 	kmod-nft-offload \
 	odhcp6c \
 	odhcpd-ipv6only \
 	ppp \
-	ppp-mod-pppoe
+	ppp-mod-pppoe \
+	luci-app-openclash luci-app-openvpn luci-app-sqm luci-app-udpxy luci-app-upnp \
+	luci-proto-openconnect luci-proto-wireguard luci-app-frpc \
+	iptables iptables-nft ip6tables-nft xtables-nft \
+	kmod-ipt-extra kmod-ipt-offload kmod-ipt-nat kmod-ipt-nat-extra kmod-ipt-nat6 \
+	kmod-nf-ipt6 kmod-nf-nathelper kmod-nf-nathelper-extra \
+	kmod-nft-nat kmod-nft-compat \
+	kmod-sched kmod-sched-ctinfo sqm-scripts-extra \
+	UDPspeeder
 
 ifneq ($(DUMP),)
   all: dumpinfo
@@ -208,7 +226,7 @@ LINUX_RECONF_DIFF = $(SCRIPT_DIR)/kconfig.pl - '>' $(call __linux_confcmd,$(filt
 ifeq ($(DUMP),1)
   BuildTarget=$(BuildTargets/DumpCurrent)
 
-  CPU_CFLAGS = -Os -pipe
+  CPU_CFLAGS = -O3 -pipe
   ifneq ($(findstring mips,$(ARCH)),)
     ifneq ($(findstring mips64,$(ARCH)),)
       CPU_TYPE ?= mips64
