@@ -25,6 +25,7 @@ mediatek_setup_interfaces()
 		;;
 	asus,tuf-ax4200|\
 	mediatek,mt7981-rfb|\
+	unielec,u7981-01*|\
 	zbtlink,zbt-z8102ax)
 		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 lan4" eth1
 		;;
@@ -58,6 +59,7 @@ mediatek_setup_interfaces()
 	mercusys,mr90x-v1)
 		ucidef_set_interfaces_lan_wan "lan0 lan1 lan2" eth1
 		;;
+	cudy,re3000-v1|\
 	netgear,wax220|\
 	ubnt,unifi-6-plus|\
 	zyxel,nwa50ax-pro)

@@ -106,7 +106,8 @@ platform_do_upgrade() {
 			;;
 		esac
 		;;
-	cudy,wr3000-v1)
+	cudy,wr3000-v1|\
+	cudy,re3000-v1)
 		default_do_upgrade "$1"
 		;;
 	glinet,gl-mt6000)
@@ -147,6 +148,23 @@ platform_do_upgrade() {
 		CI_ROOTPART="ubi_rootfs"
                 nand_do_upgrade "$1"
                 ;;
+	unielec,u7981-01*)
+		local rootdev="$(cmdline_get_var root)"
+		rootdev="${rootdev##*/}"
+		rootdev="${rootdev%p[0-9]*}"
+		case "$rootdev" in
+		mmc*)
+			CI_ROOTDEV="$rootdev"
+			CI_KERNPART="kernel"
+			CI_ROOTPART="rootfs"
+			emmc_do_upgrade "$1"
+			;;
+		*)
+			CI_KERNPART="fit"
+			nand_do_upgrade "$1"
+			;;
+		esac
+		;;
 	*)
 		nand_do_upgrade "$1"
 		;;
