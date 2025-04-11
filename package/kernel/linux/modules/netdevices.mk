@@ -976,7 +976,7 @@ define KernelPackage/r8169
     CONFIG_R8169 \
     CONFIG_R8169_LEDS=y
   FILES:=$(LINUX_DIR)/drivers/net/ethernet/realtek/r8169.ko
-  AUTOLOAD:=$(call AutoProbe,r8169)
+  AUTOLOAD:=$(call AutoProbe,r8169,1)
 endef
 
 define KernelPackage/r8169/description
@@ -1098,7 +1098,6 @@ define KernelPackage/ixgbe
   TITLE:=Intel(R) 82598/82599 PCI-Express 10 Gigabit Ethernet support
   DEPENDS:=@PCI_SUPPORT +kmod-mdio +kmod-ptp +kmod-hwmon-core +kmod-libphy +kmod-mdio-devres
   KCONFIG:=CONFIG_IXGBE \
-    CONFIG_IXGBE_VXLAN=n \
     CONFIG_IXGBE_HWMON=y \
     CONFIG_IXGBE_DCA=n
   FILES:=$(LINUX_DIR)/drivers/net/ethernet/intel/ixgbe/ixgbe.ko
@@ -1117,7 +1116,6 @@ define KernelPackage/ixgbevf
   TITLE:=Intel(R) 82599 Virtual Function Ethernet support
   DEPENDS:=@PCI_SUPPORT +kmod-ixgbe
   KCONFIG:=CONFIG_IXGBEVF \
-    CONFIG_IXGBE_VXLAN=n \
     CONFIG_IXGBE_HWMON=y \
     CONFIG_IXGBE_DCA=n
   FILES:=$(LINUX_DIR)/drivers/net/ethernet/intel/ixgbevf/ixgbevf.ko
@@ -1134,10 +1132,8 @@ $(eval $(call KernelPackage,ixgbevf))
 define KernelPackage/i40e
   SUBMENU:=$(NETWORK_DEVICES_MENU)
   TITLE:=Intel(R) Ethernet Controller XL710 Family support
-  DEPENDS:=@PCI_SUPPORT +kmod-mdio +kmod-ptp +kmod-hwmon-core +kmod-libphy
+  DEPENDS:=@PCI_SUPPORT +kmod-ptp
   KCONFIG:=CONFIG_I40E \
-    CONFIG_I40E_VXLAN=n \
-    CONFIG_I40E_HWMON=y \
     CONFIG_I40E_DCA=n
   FILES:=$(LINUX_DIR)/drivers/net/ethernet/intel/i40e/i40e.ko
   AUTOLOAD:=$(call AutoProbe,i40e)
