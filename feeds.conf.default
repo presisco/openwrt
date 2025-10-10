@@ -1,6 +1,6 @@
-src-git packages https://git.openwrt.org/feed/packages.git^c7d1a8c1ae976bd0ad94a351d82ee8fbf16a81f0
-src-git luci https://git.openwrt.org/project/luci.git^d6b13f648339273facc07b173546ace459c1cabe
-src-git routing https://git.openwrt.org/feed/routing.git^85d040f28c21c116c905aa15a66255dde80336e7
+src-git packages https://git.openwrt.org/feed/packages.git^44cff71992c291ae11b7b37606c70db62dc0674e
+src-git luci https://git.openwrt.org/project/luci.git^923f8d991a49dc3d899fd24fc92ae7b1653ee4d0
+src-git routing https://git.openwrt.org/feed/routing.git^885ae6f9d0c0f47a1a6321e1cc7e9c7e20cc2681
 src-git telephony https://git.openwrt.org/feed/telephony.git^2a4541d46199ac96fac214d02c908402831c4dc6
 src-link lean /home/dev/lean-pkgs
 src-link emortal /home/dev/immortalwrt-pkgs
