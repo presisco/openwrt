@@ -184,6 +184,17 @@ define Device/cudy_m1200-v1
 endef
 TARGET_DEVICES += cudy_m1200-v1
 
+define Device/cudy_re1200-outdoor-v1
+  IMAGE_SIZE := 7808k
+  DEVICE_VENDOR := Cudy
+  DEVICE_MODEL := RE1200 Outdoor
+  DEVICE_VARIANT := v1
+  DEVICE_PACKAGES := kmod-mt7615e kmod-mt7663-firmware-ap
+  UIMAGE_NAME := R56
+  SUPPORTED_DEVICES += R56
+endef
+TARGET_DEVICES += cudy_re1200-outdoor-v1
+
 define Device/cudy_tr1200-v1
   IMAGE_SIZE := 15872k
   DEVICE_VENDOR := Cudy
@@ -335,6 +346,15 @@ define Device/hongdian_h7920-v40
   DEVICE_PACKAGES := kmod-usb2 kmod-usb-ohci kmod-usb-net-qmi-wwan kmod-usb-serial-option uqmi
 endef
 TARGET_DEVICES += hongdian_h7920-v40
+
+define Device/hongdian_h8850-v20
+  IMAGE_SIZE := 16064k
+  DEVICE_VENDOR := Hongdian
+  DEVICE_MODEL := H8850
+  DEVICE_VARIANT := v20
+  DEVICE_PACKAGES := kmod-usb2 kmod-usb-ohci kmod-usb-net-qmi-wwan kmod-usb-serial-option uqmi
+endef
+TARGET_DEVICES += hongdian_h8850-v20
 
 define Device/iptime_a3
   IMAGE_SIZE := 7936k

@@ -702,6 +702,30 @@ define Device/confiabits_mt7621-v1
 endef
 TARGET_DEVICES += confiabits_mt7621-v1
 
+define Device/cudy_ap1300-outdoor-v1
+  $(Device/dsa-migration)
+  $(Device/uimage-lzma-loader)
+  DEVICE_VENDOR := Cudy
+  DEVICE_MODEL := AP1300 Outdoor
+  DEVICE_VARIANT := v1
+  IMAGE_SIZE := 15872k
+  UIMAGE_NAME := R39
+  DEVICE_PACKAGES := kmod-mt7603 kmod-mt7615e kmod-mt7663-firmware-ap \
+	-uboot-envtools
+  SUPPORTED_DEVICES += R39
+endef
+TARGET_DEVICES += cudy_ap1300-outdoor-v1
+
+define Device/cudy_c200p
+  $(Device/dsa-migration)
+  DEVICE_VENDOR := Cudy
+  DEVICE_MODEL := C200P
+  IMAGE_SIZE := 15872k
+  UIMAGE_NAME := R74
+  DEVICE_PACKAGES := -uboot-envtools -wpad-basic-mbedtls kmod-usb3
+endef
+TARGET_DEVICES += cudy_c200p
+
 define Device/cudy_m1300-v2
   $(Device/dsa-migration)
   IMAGE_SIZE := 15872k
@@ -770,6 +794,16 @@ define Device/cudy_wr2100
   DEVICE_PACKAGES := kmod-mt7603 kmod-mt7615-firmware -uboot-envtools
 endef
 TARGET_DEVICES += cudy_wr2100
+
+define Device/cudy_r700
+  $(Device/dsa-migration)
+  DEVICE_VENDOR := Cudy
+  DEVICE_MODEL := R700
+  IMAGE_SIZE := 15872k
+  UIMAGE_NAME := R29
+  DEVICE_PACKAGES := -uboot-envtools -wpad-basic-mbedtls
+endef
+TARGET_DEVICES += cudy_r700
 
 define Device/cudy_x6-v1
   $(Device/dsa-migration)
@@ -946,6 +980,9 @@ define Device/dlink_dir-2660-a1
   $(Device/dlink_dir_nand_128m)
   DEVICE_MODEL := DIR-2660
   DEVICE_VARIANT := A1
+  DEVICE_ALT0_VENDOR := D-Link
+  DEVICE_ALT0_MODEL := DIR-2660
+  DEVICE_ALT0_VARIANT := A2
 endef
 TARGET_DEVICES += dlink_dir-2660-a1
 
@@ -1588,9 +1625,11 @@ define Device/iodata_wn-ax1167gr
   IMAGE_SIZE := 15552k
   DEVICE_VENDOR := I-O DATA
   DEVICE_MODEL := WN-AX1167GR
+ifeq ($(IB),)
   ARTIFACTS := initramfs-factory.bin
   ARTIFACT/initramfs-factory.bin := append-image-stage initramfs-kernel.bin | \
 	check-size 7680k | senao-header -r 0x30a -p 0x1055 -t 4
+endif
   DEVICE_PACKAGES := kmod-mt7603 kmod-mt76x2 -uboot-envtools
 endef
 TARGET_DEVICES += iodata_wn-ax1167gr
@@ -1640,10 +1679,12 @@ define Device/iodata_wn-deax1800gr
   KERNEL := kernel-bin | relocate-kernel $(loadaddr-y) | lzma | \
 	fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb
   IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+ifeq ($(IB),)
   ARTIFACTS := initramfs-factory.bin
   ARTIFACT/initramfs-factory.bin := append-image-stage initramfs-kernel.bin | \
 	check-size | xor-image -p 29944a25120984c2 -x | \
 	iodata-mstc-header2 WN-DEAX1800GR 00021003
+endif
   DEVICE_PACKAGES := kmod-mt7915-firmware
 endef
 TARGET_DEVICES += iodata_wn-deax1800gr
@@ -1771,9 +1812,11 @@ define Device/iptime_ax2004m
   KERNEL_LOADADDR := 0x82000000
   KERNEL := kernel-bin | relocate-kernel $(loadaddr-y) | lzma | \
 	fit lzma $$(KDIR)/image-$$(firstword $$(DEVICE_DTS)).dtb
+ifeq ($(IB),)
   ARTIFACTS := initramfs-factory.bin
   ARTIFACT/initramfs-factory.bin := append-image-stage initramfs-kernel.bin | \
 	check-size | iptime-crc32 ax2004m
+endif
   DEVICE_VENDOR := ipTIME
   DEVICE_MODEL := AX2004M
   DEVICE_PACKAGES := kmod-mt7915-firmware kmod-usb3

@@ -143,7 +143,7 @@ Signed-off-by: minda.chen <minda.chen@starfivetech.com>
  	 * something other than the default (~1ms minimum between interrupts).
 --- a/drivers/usb/host/xhci-plat.c
 +++ b/drivers/usb/host/xhci-plat.c
-@@ -253,6 +253,14 @@ int xhci_plat_probe(struct platform_devi
+@@ -254,6 +254,14 @@ int xhci_plat_probe(struct platform_devi
  		if (device_property_read_bool(tmpdev, "xhci-sg-trb-cache-size-quirk"))
  			xhci->quirks |= XHCI_SG_TRB_CACHE_SIZE_QUIRK;
  
@@ -160,7 +160,7 @@ Signed-off-by: minda.chen <minda.chen@starfivetech.com>
  	}
 --- a/drivers/usb/host/xhci-ring.c
 +++ b/drivers/usb/host/xhci-ring.c
-@@ -3729,7 +3729,8 @@ int xhci_queue_bulk_tx(struct xhci_hcd *
+@@ -3726,7 +3726,8 @@ int xhci_queue_bulk_tx(struct xhci_hcd *
  
  	full_len = urb->transfer_buffer_length;
  	/* If we have scatter/gather list, we use it. */
